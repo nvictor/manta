@@ -1,0 +1,47 @@
+.reveal {
+  --dz-accent: #1f5dbd;
+  --dz-bg: #f6f8ff;
+  --dz-fg: #1a2340;
+  --dz-muted: #5d6b8c;
+  --dz-panel: rgba(255, 255, 255, 0.96);
+  --dz-panel-muted: rgba(240, 244, 255, 0.94);
+  --dz-font-sans: "Avenir Next", "Segoe UI", sans-serif;
+}
+
+.derivation-grid {
+  display: grid;
+  gap: 0.8rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.pair-card {
+  border: 1px solid color-mix(in srgb, var(--dz-accent) 18%, #cfd8ee);
+  border-radius: 1rem;
+  padding: 0.95rem 1rem;
+  background: rgba(255, 255, 255, 0.94);
+}
+
+.pair-card small {
+  color: #4f5f85;
+}
+
+.is-page {
+  border-color: color-mix(in srgb, #b42318 40%, #fecaca);
+  background: #fff1f2;
+}
+
+.is-ticket {
+  border-color: color-mix(in srgb, #b45309 38%, #fde68a);
+  background: #fff7ed;
+}
+
+.is-calm {
+  border-color: color-mix(in srgb, #0f766e 38%, #bbf7d0);
+  background: #ecfdf5;
+}
+
+@media (max-width: 900px) {
+  .derivation-grid {
+    grid-template-columns: 1fr;
+  }
+}

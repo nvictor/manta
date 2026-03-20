@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Critical User Journeys</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="assets/reveal/reset.css" />
+    <link rel="stylesheet" href="assets/reveal/reveal.css" />
+    <link rel="stylesheet" href="assets/reveal/plugin/highlight/monokai.css" />
+    <link rel="stylesheet" href="assets/deckzero/deckzero.css" />
+    <link rel="stylesheet" href="assets/deckzero/themes/light.css" />
+    <style>
+      .reveal {
+        --dz-accent: #2243b6;
+        --dz-bg: #f5f7fb;
+        --dz-panel: rgba(255, 255, 255, 0.95);
+        --dz-panel-muted: rgba(236, 242, 252, 0.92);
+        --dz-font-sans: "Avenir Next", "Segoe UI", sans-serif;
+      }
+
+      .journey-list {
+        display: grid;
+        gap: 0.8rem;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .signal-list {
+        align-items: start;
+      }
+
+      .step-chip {
+        border: 1px solid color-mix(in srgb, var(--dz-accent) 18%, #cbd5e1);
+        border-radius: 1rem;
+        padding: 0.9rem 1rem;
+        background: rgba(255, 255, 255, 0.92);
+      }
+
+      .step-chip strong {
+        display: block;
+        margin-bottom: 0.35rem;
+      }
+
+      .is-critical {
+        border-color: color-mix(in srgb, #0f766e 40%, #d1fae5);
+        background: #ecfdf5;
+      }
+
+      .is-common {
+        border-color: color-mix(in srgb, #94a3b8 38%, #e2e8f0);
+        background: #f8fafc;
+      }
+
+      .is-latency {
+        border-color: color-mix(in srgb, #2563eb 38%, #bfdbfe);
+        background: #eff6ff;
+      }
+
+      .is-availability {
+        border-color: color-mix(in srgb, #0f766e 40%, #bbf7d0);
+        background: #ecfdf5;
+      }
+
+      .step-chip small {
+        color: #475569;
+      }
+
+      @media (max-width: 900px) {
+        .journey-list {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      class="reveal"
+      data-dz-brand-src="assets/media/default.svg"
+      data-dz-brand-style="logo"
+      data-dz-brand-position="top-right"
+      data-dz-brand-alt="deckzero"
+      data-dz-theme="light"
+    >
+      <div class="slides">
+        <section>
+        <!-- layout: title -->
+        <h1>Critical User Journeys</h1>
+        <p>Define the path that creates user value, then measure the path instead of isolated components.</p>
+        </section>
+
+        <section>
+        <!-- layout: split:text-image -->
+        <h2>What Counts as a CUJ</h2>
+        <p>A critical user journey is the sequence of interactions a user must complete to get real value from the system.</p>
+        <div>
+          <ul>
+            <li>It starts from the user goal, not the service topology.</li>
+            <li>It includes front-end actions and backend dependencies.</li>
+            <li>It becomes the frame for SLO design and incident priority.</li>
+          </ul>
+        </div>
+        <div>
+          <img src="assets/media/cujs-journey.svg" alt="A simplified browse to purchase journey diagram" />
+        </div>
+        </section>
+
+        <section>
+        <!-- layout: split:text-text -->
+        <h2>Core Concepts</h2>
+        <p>These concepts give you a practical frame for defining and measuring a critical journey.</p>
+        <div>
+          <h3>Start with the journey</h3>
+          <p>Reliability should protect what users are trying to accomplish.</p>
+          <h3>Model dependencies</h3>
+          <p>Include both visible interactions and required systems behind them.</p>
+        </div>
+        <div>
+          <h3>Grade importance</h3>
+          <p>Differentiate common tasks from moments where value is actually delivered.</p>
+          <h3>Measure the full path</h3>
+          <p>Track the whole journey so completion failures show up as user-visible reliability issues.</p>
+        </div>
+        </section>
+
+        <section>
+        <!-- layout: split:text-text -->
+        <h2>Why CUJs Matter</h2>
+        <p>CUJs make reliability work legible to both engineering and the business.</p>
+        <div>
+          <h3>Better SLO alignment</h3>
+          <p>Objectives stay tied to user success instead of internal subsystem vanity metrics.</p>
+          <h3>Clearer incident triage</h3>
+          <p>A broken purchase flow deserves a different response than degraded browsing.</p>
+        </div>
+        <div>
+          <h3>Hidden weak-link discovery</h3>
+          <p>Journey maps expose dependencies that can break completion even when single services look healthy.</p>
+          <h3>Sharper tradeoffs</h3>
+          <p>Critical paths justify stricter targets and faster response.</p>
+        </div>
+        </section>
+
+        <section>
+        <h2>Example Journey: Online Shopping</h2>
+        <p>Not every shopping action carries the same reliability weight. Focus on the steps where user intent turns into completed value.</p>
+        <div class="journey-list">
+          <div class="step-chip is-common">
+            <strong>Browse product catalog</strong>
+            <small>Useful, but not where user value is completed.</small>
+          </div>
+          <div class="step-chip is-common">
+            <strong>Search by keyword</strong>
+            <small>Important discovery aid, but still pre-transaction.</small>
+          </div>
+          <div class="step-chip fragment is-critical">
+            <strong>Add item to cart</strong>
+            <small>Begins the committed purchase path.</small>
+          </div>
+          <div class="step-chip fragment is-critical">
+            <strong>Complete purchase and payment</strong>
+            <small>Value is realized here. This is the core critical activity.</small>
+          </div>
+          <div class="step-chip is-common">
+            <strong>Receive order confirmation</strong>
+            <small>Important feedback, but secondary to transaction completion.</small>
+          </div>
+        </div>
+        </section>
+
+        <section>
+        <h2>Signal Mapping</h2>
+        <p>Each step should be paired with the signal that best exposes user-visible failure along the journey.</p>
+        <div class="journey-list signal-list">
+          <div class="step-chip fragment is-latency" data-fragment-index="1">
+            <strong>Latency: Checkout submit</strong>
+            <small>Slow submit flow is directly user-visible friction.</small>
+          </div>
+          <div class="step-chip fragment is-availability" data-fragment-index="2">
+            <strong>Availability: Payment authorization</strong>
+            <small>Success or failure matters more than minor speed variation.</small>
+          </div>
+          <div class="step-chip fragment is-latency" data-fragment-index="3">
+            <strong>Latency: Checkout page load</strong>
+            <small>Load time is a front-door signal for the purchase path.</small>
+          </div>
+        </div>
+        </section>
+      </div>
+    </div>
+
+    <script src="assets/reveal/reveal.js"></script>
+    <script src="assets/reveal/plugin/zoom.js"></script>
+    <script src="assets/reveal/plugin/notes.js"></script>
+    <script src="assets/reveal/plugin/search.js"></script>
+    <script src="assets/reveal/plugin/markdown.js"></script>
+    <script src="assets/reveal/plugin/highlight.js"></script>
+    <script src="assets/deckzero/deckzero.js"></script>
+    <script>
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        hash: true,
+        center: true,
+        transition: "fade",
+        backgroundTransition: "fade",
+        plugins: [RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight]
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,11 @@
+{
+  "name": "manta",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "compile-decks": "node ./scripts/compile-deck.mjs",
+    "compile:alerts": "node ./scripts/compile-deck.mjs alerts",
+    "compile:cujs": "node ./scripts/compile-deck.mjs cujs",
+    "compile:threshold": "node ./scripts/compile-deck.mjs threshold"
+  }
+}

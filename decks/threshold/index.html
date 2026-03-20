@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>SLO vs Threshold Alerting</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="assets/reveal/reset.css" />
+    <link rel="stylesheet" href="assets/reveal/reveal.css" />
+    <link rel="stylesheet" href="assets/reveal/plugin/highlight/monokai.css" />
+    <link rel="stylesheet" href="assets/deckzero/deckzero.css" />
+    <link rel="stylesheet" href="assets/deckzero/themes/light.css" />
+    <style>
+      .reveal {
+        --dz-accent: #b53a35;
+        --dz-bg: #fff8f4;
+        --dz-fg: #351c1a;
+        --dz-muted: #7a4a42;
+        --dz-panel: rgba(255, 255, 255, 0.96);
+        --dz-panel-muted: rgba(255, 244, 240, 0.95);
+        --dz-font-sans: "Avenir Next", "Segoe UI", sans-serif;
+      }
+
+      .scenario-grid {
+        display: grid;
+        gap: 0.8rem;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .scenario-card {
+        border: 1px solid color-mix(in srgb, var(--dz-accent) 18%, #e7cfc8);
+        border-radius: 1rem;
+        padding: 0.95rem 1rem;
+        background: rgba(255, 255, 255, 0.94);
+      }
+
+      .scenario-card strong {
+        display: block;
+        margin-bottom: 0.35rem;
+      }
+
+      .scenario-card small {
+        color: #6f463e;
+      }
+
+      .is-page {
+        border-color: color-mix(in srgb, #b42318 42%, #fecaca);
+        background: #fff1f2;
+      }
+
+      .is-investigate {
+        border-color: color-mix(in srgb, #b45309 42%, #fde68a);
+        background: #fff7ed;
+      }
+
+      .is-observe {
+        border-color: color-mix(in srgb, #0f766e 38%, #bbf7d0);
+        background: #ecfdf5;
+      }
+
+      @media (max-width: 900px) {
+        .scenario-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      class="reveal"
+      data-dz-brand-src="assets/media/default.svg"
+      data-dz-brand-style="logo"
+      data-dz-brand-position="top-right"
+      data-dz-brand-alt="deckzero"
+      data-dz-theme="light"
+    >
+      <div class="slides">
+        <section>
+        <!-- layout: title -->
+        <h1>SLO-Based vs Threshold-Based Alerting</h1>
+        <p>Learn when to page, when to warn, and when to debug. The operating pattern is simple: SLO alerts for paging, threshold alerts for early warning.</p>
+        </section>
+
+        <section>
+        <!-- layout: split:text-image -->
+        <h2>What Changes Between Alert Types</h2>
+        <p>SLO alerts and threshold alerts answer different questions, so they should route to humans differently.</p>
+        <div>
+          <ul>
+            <li>SLO alerts ask whether users are meaningfully impacted.</li>
+            <li>Threshold alerts ask whether the system looks abnormal.</li>
+            <li>Diagnostic signals explain why the condition is happening.</li>
+          </ul>
+        </div>
+        <div>
+          <img src="assets/media/threshold-icon.svg" alt="Threshold and SLO alerting icon" />
+        </div>
+        </section>
+
+        <section>
+        <!-- layout: split:text-text -->
+        <h2>Core Differences</h2>
+        <p>These distinctions keep paging tied to user pain instead of raw infrastructure noise.</p>
+        <div>
+          <h3>SLO alerts ask user-impact questions</h3>
+          <p>They page when reliability objectives are burning too fast and users are likely feeling it.</p>
+          <h3>Threshold alerts ask system-abnormal questions</h3>
+          <p>They are strong early warnings and usually route to Slack, ticketing, or office-hours investigation.</p>
+        </div>
+        <div>
+          <h3>Both are useful in mature systems</h3>
+          <p>SLO alerts drive paging. Threshold alerts help prevent incidents and speed diagnosis.</p>
+          <h3>Diagnostics explain the cause</h3>
+          <p>Use supporting signals to understand why saturation, latency, or burn changed.</p>
+        </div>
+        </section>
+
+        <section>
+        <h2>Routing Logic</h2>
+        <p>The routing rule depends on burn rate, impact, and whether the condition is sustained across windows.</p>
+        <div class="scenario-grid">
+          <div class="scenario-card fragment is-observe" data-fragment-index="1">
+            <strong>Observe</strong>
+            <small>No urgent page signal. Keep diagnostics visible and monitor for trend changes.</small>
+          </div>
+          <div class="scenario-card fragment is-investigate" data-fragment-index="2">
+            <strong>Investigate</strong>
+            <small>The system is abnormal, but SLO burn is not yet severe and sustained. Route as warning, not a page.</small>
+          </div>
+          <div class="scenario-card fragment is-page" data-fragment-index="3">
+            <strong>Page now</strong>
+            <small>Users are likely feeling pain and the SLO burn is sustained. This is a paging event.</small>
+          </div>
+        </div>
+        </section>
+
+        <section>
+        <h2>Practical Rule</h2>
+        <p>Only SLO alerts should page humans. Threshold alerts should inform humans so teams can prevent incidents earlier.</p>
+        </section>
+      </div>
+    </div>
+
+    <script src="assets/reveal/reveal.js"></script>
+    <script src="assets/reveal/plugin/zoom.js"></script>
+    <script src="assets/reveal/plugin/notes.js"></script>
+    <script src="assets/reveal/plugin/search.js"></script>
+    <script src="assets/reveal/plugin/markdown.js"></script>
+    <script src="assets/reveal/plugin/highlight.js"></script>
+    <script src="assets/deckzero/deckzero.js"></script>
+    <script>
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        hash: true,
+        center: true,
+        transition: "fade",
+        backgroundTransition: "fade",
+        plugins: [RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight]
+      });
+    </script>
+  </body>
+</html>

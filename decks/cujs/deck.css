@@ -1,0 +1,59 @@
+.reveal {
+  --dz-accent: #2243b6;
+  --dz-bg: #f5f7fb;
+  --dz-panel: rgba(255, 255, 255, 0.95);
+  --dz-panel-muted: rgba(236, 242, 252, 0.92);
+  --dz-font-sans: "Avenir Next", "Segoe UI", sans-serif;
+}
+
+.journey-list {
+  display: grid;
+  gap: 0.8rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.signal-list {
+  align-items: start;
+}
+
+.step-chip {
+  border: 1px solid color-mix(in srgb, var(--dz-accent) 18%, #cbd5e1);
+  border-radius: 1rem;
+  padding: 0.9rem 1rem;
+  background: rgba(255, 255, 255, 0.92);
+}
+
+.step-chip strong {
+  display: block;
+  margin-bottom: 0.35rem;
+}
+
+.is-critical {
+  border-color: color-mix(in srgb, #0f766e 40%, #d1fae5);
+  background: #ecfdf5;
+}
+
+.is-common {
+  border-color: color-mix(in srgb, #94a3b8 38%, #e2e8f0);
+  background: #f8fafc;
+}
+
+.is-latency {
+  border-color: color-mix(in srgb, #2563eb 38%, #bfdbfe);
+  background: #eff6ff;
+}
+
+.is-availability {
+  border-color: color-mix(in srgb, #0f766e 40%, #bbf7d0);
+  background: #ecfdf5;
+}
+
+.step-chip small {
+  color: #475569;
+}
+
+@media (max-width: 900px) {
+  .journey-list {
+    grid-template-columns: 1fr;
+  }
+}
