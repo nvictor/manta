@@ -24,23 +24,21 @@ HolmesGPT is strongest when incident response needs guided investigation rather 
 
 ---
 
-<!-- layout: split:text-image -->
 ## Architecture and Data Sources
 
 The system works because it can correlate incident evidence from multiple channels, not because it has one smart model prompt.
 
-<div>
-  <p>Use the architecture map as a reminder of where investigation context actually comes from during RCA.</p>
-  <ul>
-    <li>Alerting and collaboration systems provide the starting signal.</li>
-    <li>Observability, infrastructure, and runbooks supply evidence.</li>
-    <li>The model layer turns structured evidence into diagnosis and next actions.</li>
-  </ul>
-</div>
+<p>Use the architecture map as a reminder of where investigation context actually comes from during RCA.</p>
+<ul>
+  <li>Alerting and collaboration systems provide the starting signal.</li>
+  <li>Observability, infrastructure, and runbooks supply evidence.</li>
+  <li>The model layer turns structured evidence into diagnosis and next actions.</li>
+</ul>
 
-<div>
-  <img src="assets/media/holmes-architecture.png" alt="HolmesGPT architecture showing model providers, runbooks, observability sources, cloud infrastructure, and incident outputs." />
-</div>
+---
+
+<!-- layout: image-caption -->
+<img src="assets/media/holmes-architecture.png" alt="HolmesGPT architecture showing model providers, runbooks, observability sources, cloud infrastructure, and incident outputs." />
 
 ---
 
@@ -75,8 +73,6 @@ These are the main input classes HolmesGPT pulls together during incident analys
 
 ## Concept Modules
 
-The interactive module picker in the PWA becomes a compact comparison of the deck’s six core lessons.
-
 <div class="concept-grid">
   <div class="concept-card fragment" data-fragment-index="1">
     <strong>Purpose-built troubleshooting agent</strong>
@@ -108,32 +104,33 @@ The interactive module picker in the PWA becomes a compact comparison of the dec
 
 ## Investigation Loop
 
-The PWA stepper becomes a progressive reveal. Each step narrows the search space before the next query.
+The loop enforces evidence-backed progress instead of repetitive tool chatter.
 
 <div class="concept-grid">
   <div class="concept-card fragment" data-fragment-index="1">
-    <strong>1. Hypothesis</strong>
+    <span>1</span>
+    <strong>Hypothesis</strong>
     <small>Start with candidate causes from user symptoms and alert metadata.</small>
   </div>
   <div class="concept-card fragment" data-fragment-index="2">
-    <strong>2. Targeted query</strong>
+    <span>2</span>
+    <strong>Targeted query</strong>
     <small>Pull only the most relevant metrics, logs, traces, and cluster events.</small>
   </div>
   <div class="concept-card fragment" data-fragment-index="3">
-    <strong>3. Evidence check</strong>
+    <span>3</span>
+    <strong>Evidence check</strong>
     <small>Validate or reject each hypothesis using observed signal alignment.</small>
   </div>
   <div class="concept-card fragment" data-fragment-index="4">
-    <strong>4. Refine and branch</strong>
+    <span>4</span>
+    <strong>Refine and branch</strong>
     <small>Promote likely causes, drop weak leads, and test the next branch.</small>
   </div>
   <div class="concept-card fragment" data-fragment-index="5">
-    <strong>5. RCA and remediation</strong>
+    <span>5</span>
+    <strong>RCA and remediation</strong>
     <small>Publish root cause, confidence, and next actions for responders.</small>
-  </div>
-  <div class="concept-card fragment is-signal" data-fragment-index="6">
-    <strong>Why this matters</strong>
-    <small>The loop enforces evidence-backed progress instead of repetitive tool chatter.</small>
   </div>
 </div>
 
@@ -169,8 +166,6 @@ A good RCA chain moves from symptom to infrastructure evidence to the actual cha
 ---
 
 ## Tool Load Scenarios
-
-The slider exercise becomes named tool-load bands. The lesson is about orchestration risk, not the exact control value.
 
 <div class="scenario-grid">
   <div class="scenario-card fragment is-load-low" data-fragment-index="1">

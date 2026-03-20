@@ -59,7 +59,8 @@
         margin-bottom: 0.35rem;
       }
 
-      .path-node span {
+      .path-node span,
+      .concept-card span {
         display: inline-flex;
         width: 1.9rem;
         height: 1.9rem;
@@ -154,20 +155,19 @@
         </section>
 
         <section>
-        <!-- layout: split:text-image -->
         <h2>Architecture and Data Sources</h2>
         <p>The system works because it can correlate incident evidence from multiple channels, not because it has one smart model prompt.</p>
-        <div>
-          <p>Use the architecture map as a reminder of where investigation context actually comes from during RCA.</p>
-          <ul>
-            <li>Alerting and collaboration systems provide the starting signal.</li>
-            <li>Observability, infrastructure, and runbooks supply evidence.</li>
-            <li>The model layer turns structured evidence into diagnosis and next actions.</li>
-          </ul>
-        </div>
-        <div>
-          <img src="assets/media/holmes-architecture.png" alt="HolmesGPT architecture showing model providers, runbooks, observability sources, cloud infrastructure, and incident outputs." />
-        </div>
+        <p>Use the architecture map as a reminder of where investigation context actually comes from during RCA.</p>
+        <ul>
+          <li>Alerting and collaboration systems provide the starting signal.</li>
+          <li>Observability, infrastructure, and runbooks supply evidence.</li>
+          <li>The model layer turns structured evidence into diagnosis and next actions.</li>
+        </ul>
+        </section>
+
+        <section>
+        <!-- layout: image-caption -->
+        <img src="assets/media/holmes-architecture.png" alt="HolmesGPT architecture showing model providers, runbooks, observability sources, cloud infrastructure, and incident outputs." />
         </section>
 
         <section>
@@ -199,7 +199,6 @@
 
         <section>
         <h2>Concept Modules</h2>
-        <p>The interactive module picker in the PWA becomes a compact comparison of the deck’s six core lessons.</p>
         <div class="concept-grid">
           <div class="concept-card fragment" data-fragment-index="1">
             <strong>Purpose-built troubleshooting agent</strong>
@@ -230,31 +229,32 @@
 
         <section>
         <h2>Investigation Loop</h2>
-        <p>The PWA stepper becomes a progressive reveal. Each step narrows the search space before the next query.</p>
+        <p>The loop enforces evidence-backed progress instead of repetitive tool chatter.</p>
         <div class="concept-grid">
           <div class="concept-card fragment" data-fragment-index="1">
-            <strong>1. Hypothesis</strong>
+            <span>1</span>
+            <strong>Hypothesis</strong>
             <small>Start with candidate causes from user symptoms and alert metadata.</small>
           </div>
           <div class="concept-card fragment" data-fragment-index="2">
-            <strong>2. Targeted query</strong>
+            <span>2</span>
+            <strong>Targeted query</strong>
             <small>Pull only the most relevant metrics, logs, traces, and cluster events.</small>
           </div>
           <div class="concept-card fragment" data-fragment-index="3">
-            <strong>3. Evidence check</strong>
+            <span>3</span>
+            <strong>Evidence check</strong>
             <small>Validate or reject each hypothesis using observed signal alignment.</small>
           </div>
           <div class="concept-card fragment" data-fragment-index="4">
-            <strong>4. Refine and branch</strong>
+            <span>4</span>
+            <strong>Refine and branch</strong>
             <small>Promote likely causes, drop weak leads, and test the next branch.</small>
           </div>
           <div class="concept-card fragment" data-fragment-index="5">
-            <strong>5. RCA and remediation</strong>
+            <span>5</span>
+            <strong>RCA and remediation</strong>
             <small>Publish root cause, confidence, and next actions for responders.</small>
-          </div>
-          <div class="concept-card fragment is-signal" data-fragment-index="6">
-            <strong>Why this matters</strong>
-            <small>The loop enforces evidence-backed progress instead of repetitive tool chatter.</small>
           </div>
         </div>
         </section>
@@ -288,7 +288,6 @@
 
         <section>
         <h2>Tool Load Scenarios</h2>
-        <p>The slider exercise becomes named tool-load bands. The lesson is about orchestration risk, not the exact control value.</p>
         <div class="scenario-grid">
           <div class="scenario-card fragment is-load-low" data-fragment-index="1">
             <strong>Low tool load</strong>
