@@ -6,6 +6,7 @@
     "compile-decks": "node ./scripts/compile-deck.mjs",
     "compile:alerts": "node ./scripts/compile-deck.mjs alerts",
     "compile:cujs": "node ./scripts/compile-deck.mjs cujs",
+    "compile:holmes": "node ./scripts/compile-deck.mjs holmes",
     "compile:threshold": "node ./scripts/compile-deck.mjs threshold"
   }
 }

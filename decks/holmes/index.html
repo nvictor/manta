@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>HolmesGPT Architecture</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="assets/reveal/reset.css" />
+    <link rel="stylesheet" href="assets/reveal/reveal.css" />
+    <link rel="stylesheet" href="assets/reveal/plugin/highlight/monokai.css" />
+    <link rel="stylesheet" href="assets/deckzero/deckzero.css" />
+    <link rel="stylesheet" href="assets/deckzero/themes/light.css" />
+    <style>
+      .reveal {
+        --dz-accent: #14532d;
+        --dz-bg: #f4fbf7;
+        --dz-fg: #173126;
+        --dz-muted: #4f6b5f;
+        --dz-panel: rgba(255, 255, 255, 0.96);
+        --dz-panel-muted: rgba(237, 247, 241, 0.94);
+        --dz-font-sans: "Avenir Next", "Segoe UI", sans-serif;
+      }
+
+      .concept-grid,
+      .source-grid,
+      .path-grid,
+      .scenario-grid {
+        display: grid;
+        gap: 0.8rem;
+      }
+
+      .concept-grid,
+      .scenario-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .source-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .path-grid {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        align-items: stretch;
+      }
+
+      .concept-card,
+      .source-card,
+      .path-node,
+      .scenario-card {
+        border: 1px solid color-mix(in srgb, var(--dz-accent) 18%, #cfe0d4);
+        border-radius: 1rem;
+        padding: 0.95rem 1rem;
+        background: rgba(255, 255, 255, 0.94);
+      }
+
+      .concept-card strong,
+      .scenario-card strong {
+        display: block;
+        margin-bottom: 0.35rem;
+      }
+
+      .path-node span {
+        display: inline-flex;
+        width: 1.9rem;
+        height: 1.9rem;
+        align-items: center;
+        justify-content: center;
+        border-radius: 999px;
+        margin-bottom: 0.55rem;
+        font-weight: 700;
+        background: color-mix(in srgb, var(--dz-accent) 14%, white);
+      }
+
+      .is-product {
+        border-color: color-mix(in srgb, #0f766e 40%, #bbf7d0);
+        background: #ecfdf5;
+      }
+
+      .is-platform {
+        border-color: color-mix(in srgb, #1d4ed8 36%, #bfdbfe);
+        background: #eff6ff;
+      }
+
+      .is-hybrid {
+        border-color: color-mix(in srgb, #b45309 38%, #fde68a);
+        background: #fff7ed;
+      }
+
+      .is-signal {
+        border-color: color-mix(in srgb, #14532d 26%, #bbf7d0);
+      }
+
+      .is-load-low {
+        border-color: color-mix(in srgb, #0f766e 38%, #bbf7d0);
+        background: #ecfdf5;
+      }
+
+      .is-load-medium {
+        border-color: color-mix(in srgb, #b45309 38%, #fde68a);
+        background: #fff7ed;
+      }
+
+      .is-load-high {
+        border-color: color-mix(in srgb, #b42318 40%, #fecaca);
+        background: #fff1f2;
+      }
+
+      .source-card p:last-child,
+      .concept-card small,
+      .scenario-card small {
+        color: #4a6458;
+      }
+
+      @media (max-width: 900px) {
+        .concept-grid,
+        .source-grid,
+        .path-grid,
+        .scenario-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      class="reveal"
+      data-dz-brand-src="assets/media/default.svg"
+      data-dz-brand-style="logo"
+      data-dz-brand-position="top-right"
+      data-dz-brand-alt="deckzero"
+      data-dz-theme="light"
+    >
+      <div class="slides">
+        <section>
+        <!-- layout: title -->
+        <h1>HolmesGPT Architecture</h1>
+        <p>Learn why HolmesGPT works for incident debugging, where general agent stacks win, and how to choose the right operating model.</p>
+        </section>
+
+        <section>
+        <!-- layout: split:text-image -->
+        <h2>What HolmesGPT Optimizes For</h2>
+        <p>HolmesGPT is strongest when incident response needs guided investigation rather than open-ended chat.</p>
+        <div>
+          <ul>
+            <li>It starts from hypotheses instead of random tool calls.</li>
+            <li>It loops through logs, metrics, traces, and cluster events with a troubleshooting plan.</li>
+            <li>It aims to produce RCA and remediation actions, not just descriptive answers.</li>
+          </ul>
+        </div>
+        <div>
+          <img src="assets/media/holmes-icon.svg" alt="HolmesGPT icon" />
+        </div>
+        </section>
+
+        <section>
+        <!-- layout: split:text-image -->
+        <h2>Architecture and Data Sources</h2>
+        <p>The system works because it can correlate incident evidence from multiple channels, not because it has one smart model prompt.</p>
+        <div>
+          <p>Use the architecture map as a reminder of where investigation context actually comes from during RCA.</p>
+          <ul>
+            <li>Alerting and collaboration systems provide the starting signal.</li>
+            <li>Observability, infrastructure, and runbooks supply evidence.</li>
+            <li>The model layer turns structured evidence into diagnosis and next actions.</li>
+          </ul>
+        </div>
+        <div>
+          <img src="assets/media/holmes-architecture.png" alt="HolmesGPT architecture showing model providers, runbooks, observability sources, cloud infrastructure, and incident outputs." />
+        </div>
+        </section>
+
+        <section>
+        <h2>Evidence Inputs</h2>
+        <p>These are the main input classes HolmesGPT pulls together during incident analysis.</p>
+        <div class="source-grid">
+          <div class="source-card fragment" data-fragment-index="1">
+            <h3>Alerting and on-call systems</h3>
+            <p>Paged incidents and alert signals entering the workflow.</p>
+            <p><strong>Examples:</strong> PagerDuty, Opsgenie, New Relic alerts</p>
+          </div>
+          <div class="source-card fragment" data-fragment-index="2">
+            <h3>Developer questions and APIs</h3>
+            <p>Interactive questions from responders and external API requests.</p>
+            <p><strong>Examples:</strong> Slack, web UI, HTTP API</p>
+          </div>
+          <div class="source-card fragment" data-fragment-index="3">
+            <h3>Metrics, logs, and traces</h3>
+            <p>Core observability telemetry queried during investigation.</p>
+            <p><strong>Examples:</strong> Prometheus, Loki, Tempo, Elasticsearch</p>
+          </div>
+          <div class="source-card fragment" data-fragment-index="4">
+            <h3>Cloud, cluster, and knowledge context</h3>
+            <p>Infrastructure state and runbooks that turn raw signals into operational judgment.</p>
+            <p><strong>Examples:</strong> Kubernetes, AWS, Argo, Confluence, internal docs</p>
+          </div>
+        </div>
+        </section>
+
+        <section>
+        <h2>Concept Modules</h2>
+        <p>The interactive module picker in the PWA becomes a compact comparison of the deck’s six core lessons.</p>
+        <div class="concept-grid">
+          <div class="concept-card fragment" data-fragment-index="1">
+            <strong>Purpose-built troubleshooting agent</strong>
+            <small>Hypothesis-driven investigation beats generic model-wrapper behavior during incidents.</small>
+          </div>
+          <div class="concept-card fragment" data-fragment-index="2">
+            <strong>Embedded runbooks and incident patterns</strong>
+            <small>Prepackaged playbooks reduce how much reasoning infrastructure teams must build themselves.</small>
+          </div>
+          <div class="concept-card fragment" data-fragment-index="3">
+            <strong>Tooling control over tool explosion</strong>
+            <small>Curated commands and guided query plans improve consistency under pressure.</small>
+          </div>
+          <div class="concept-card fragment" data-fragment-index="4">
+            <strong>Cross-signal correlation</strong>
+            <small>Real incidents require chaining metrics, logs, traces, events, and deploy history.</small>
+          </div>
+          <div class="concept-card fragment" data-fragment-index="5">
+            <strong>Integrated incident operations</strong>
+            <small>Diagnosis should connect directly to paging, collaboration, tickets, and remediation workflows.</small>
+          </div>
+          <div class="concept-card fragment" data-fragment-index="6">
+            <strong>Product vs platform tradeoff</strong>
+            <small>The architecture choice depends on domain fit, breadth, and the cost of custom playbooks.</small>
+          </div>
+        </div>
+        </section>
+
+        <section>
+        <h2>Investigation Loop</h2>
+        <p>The PWA stepper becomes a progressive reveal. Each step narrows the search space before the next query.</p>
+        <div class="concept-grid">
+          <div class="concept-card fragment" data-fragment-index="1">
+            <strong>1. Hypothesis</strong>
+            <small>Start with candidate causes from user symptoms and alert metadata.</small>
+          </div>
+          <div class="concept-card fragment" data-fragment-index="2">
+            <strong>2. Targeted query</strong>
+            <small>Pull only the most relevant metrics, logs, traces, and cluster events.</small>
+          </div>
+          <div class="concept-card fragment" data-fragment-index="3">
+            <strong>3. Evidence check</strong>
+            <small>Validate or reject each hypothesis using observed signal alignment.</small>
+          </div>
+          <div class="concept-card fragment" data-fragment-index="4">
+            <strong>4. Refine and branch</strong>
+            <small>Promote likely causes, drop weak leads, and test the next branch.</small>
+          </div>
+          <div class="concept-card fragment" data-fragment-index="5">
+            <strong>5. RCA and remediation</strong>
+            <small>Publish root cause, confidence, and next actions for responders.</small>
+          </div>
+          <div class="concept-card fragment is-signal" data-fragment-index="6">
+            <strong>Why this matters</strong>
+            <small>The loop enforces evidence-backed progress instead of repetitive tool chatter.</small>
+          </div>
+        </div>
+        </section>
+
+        <section>
+        <h2>Cross-Signal Reasoning Path</h2>
+        <p>A good RCA chain moves from symptom to infrastructure evidence to the actual change that broke the system.</p>
+        <div class="path-grid">
+          <article class="path-node fragment" data-fragment-index="1">
+            <span>1</span>
+            <p>API latency spike</p>
+          </article>
+          <article class="path-node fragment" data-fragment-index="2">
+            <span>2</span>
+            <p>Pod CPU saturation</p>
+          </article>
+          <article class="path-node fragment" data-fragment-index="3">
+            <span>3</span>
+            <p>Node pressure events</p>
+          </article>
+          <article class="path-node fragment" data-fragment-index="4">
+            <span>4</span>
+            <p>Recent deployment diff</p>
+          </article>
+          <article class="path-node fragment" data-fragment-index="5">
+            <span>5</span>
+            <p>Bad config and memory leak</p>
+          </article>
+        </div>
+        </section>
+
+        <section>
+        <h2>Tool Load Scenarios</h2>
+        <p>The slider exercise becomes named tool-load bands. The lesson is about orchestration risk, not the exact control value.</p>
+        <div class="scenario-grid">
+          <div class="scenario-card fragment is-load-low" data-fragment-index="1">
+            <strong>Low tool load</strong>
+            <small>Roughly 20 to 40 total tools. Generic MCP-style setups are usually manageable.</small>
+          </div>
+          <div class="scenario-card fragment is-load-medium" data-fragment-index="2">
+            <strong>Rising coordination cost</strong>
+            <small>Roughly 50 to 80 total tools. Curated tool plans and guardrails start to pay off.</small>
+          </div>
+          <div class="scenario-card fragment is-load-high" data-fragment-index="3">
+            <strong>Tool explosion zone</strong>
+            <small>100 or more total tools. Structured workflows like HolmesGPT become much more reliable.</small>
+          </div>
+        </div>
+        </section>
+
+        <section>
+        <h2>Practical Rule</h2>
+        <p>Choose HolmesGPT when guided cloud-native RCA is the product you need now. Choose a broader agent platform when customization pressure is the main constraint. Use a hybrid model when both are true.</p>
+        </section>
+      </div>
+    </div>
+
+    <script src="assets/reveal/reveal.js"></script>
+    <script src="assets/reveal/plugin/zoom.js"></script>
+    <script src="assets/reveal/plugin/notes.js"></script>
+    <script src="assets/reveal/plugin/search.js"></script>
+    <script src="assets/reveal/plugin/markdown.js"></script>
+    <script src="assets/reveal/plugin/highlight.js"></script>
+    <script src="assets/deckzero/deckzero.js"></script>
+    <script>
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        hash: true,
+        center: true,
+        transition: "fade",
+        backgroundTransition: "fade",
+        plugins: [RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight]
+      });
+    </script>
+  </body>
+</html>
