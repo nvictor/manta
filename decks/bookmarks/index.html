@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Two-Tier Bookmark System</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="assets/reveal/reset.css" />
+    <link rel="stylesheet" href="assets/reveal/reveal.css" />
+    <link rel="stylesheet" href="assets/reveal/plugin/highlight/monokai.css" />
+    <link rel="stylesheet" href="assets/deckzero/deckzero.css" />
+    <link rel="stylesheet" href="assets/deckzero/themes/light.css" />
+    <style>
+      .reveal {
+        --dz-accent: #8a4b08;
+        --dz-bg: #fff8ef;
+        --dz-fg: #1e1002;
+        --dz-muted: #613b1a;
+        --dz-panel: rgba(255, 255, 255, 0.96);
+        --dz-panel-muted: rgba(255, 245, 232, 0.94);
+        --dz-font-sans: "Avenir Next", "Segoe UI", sans-serif;
+      }
+
+      .tier-grid {
+        display: grid;
+        gap: 0.8rem;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      }
+
+      .tier-card, .cadence-card {
+        border: 1px solid color-mix(in srgb, var(--dz-accent) 18%, #f0d5bc);
+        border-radius: 1rem;
+        padding: 0.95rem 1rem;
+        background: rgba(255, 255, 255, 0.94);
+      }
+
+      .cadence-grid {
+        display: grid;
+        gap: 0.8rem;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .cadence-card h3 {
+        margin-top: 0;
+        margin-bottom: 0.2rem;
+      }
+
+      .tier-card strong {
+        display: block;
+        margin-bottom: 0.35rem;
+      }
+
+      .tier-card small, .cadence-card small {
+        color: #614833;
+      }
+
+      .is-personal {
+        border-color: color-mix(in srgb, #0f766e 40%, #d1fae5);
+        background: #ecfdf5;
+      }
+
+      .is-personal h3 {
+        color: #0f766e;
+      }
+
+      .is-work {
+        border-color: color-mix(in srgb, #2563eb 38%, #bfdbfe);
+        background: #eff6ff;
+      }
+
+      .is-work h3 {
+        color: #1d4ed8;
+      }
+
+      @media (max-width: 900px) {
+        .tier-grid, .cadence-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      class="reveal"
+      data-dz-brand-src="assets/media/default.svg"
+      data-dz-brand-style="logo"
+      data-dz-brand-position="top-right"
+      data-dz-brand-alt="deckzero"
+      data-dz-theme="light"
+    >
+      <div class="slides">
+        <section>
+        <!-- layout: title -->
+        <h1>Two-Tier Bookmark Guide</h1>
+        <p>An interactive guide to a two-tier bookmark system: the Bookmark Bar for active links (RAM) and the archive for searchable storage (Hard Drive).</p>
+        </section>
+
+        <section>
+        <!-- layout: split:text-image -->
+        <h2>The Two-Tier System</h2>
+        <p>Treat your browser bookmarks like short-term memory and your bookmark manager like long-term storage.</p>
+        <div>
+          <ul>
+            <li><strong>Tier 1: Bookmark bar.</strong> For active, high-frequency links. This is your clickable workspace.</li>
+            <li><strong>Tier 2: Archive.</strong> For searchable long-term storage. Tag every entry with context so search stays scoped.</li>
+          </ul>
+        </div>
+        <div>
+          <img src="assets/media/bookmarks-icon.svg" alt="Bookmarks icon" />
+        </div>
+        </section>
+
+        <section>
+        <h2>Personal Stack: Bookmark Bar</h2>
+        <p>This is your clickable workspace. Organize icons by muscle memory and folders by workflow.</p>
+        <div class="tier-grid">
+          <div class="tier-card fragment" data-fragment-index="1">
+            <strong>🧭 Icon Row</strong>
+            <small>Personal email, Hacker News, YouTube, Pandora, the archive, and communities stay as icon-only pins so the bar stays wide open.</small>
+          </div>
+          <div class="tier-card fragment" data-fragment-index="2">
+            <strong>📥 Inbox</strong>
+            <small>Drop anything you truly plan to revisit in the next few days, then clear it every Sunday morning over coffee.</small>
+          </div>
+          <div class="tier-card fragment" data-fragment-index="3">
+            <strong>🌅 Routine</strong>
+            <small>One click opens weather, news, finance, or journaling tabs so mornings start in the same groove.</small>
+          </div>
+          <div class="tier-card fragment" data-fragment-index="4">
+            <strong>✈️ InFlight</strong>
+            <small>A rotating folder for whatever deserves a sprint right now—trip planning, a big purchase, or a personal code project.</small>
+          </div>
+        </div>
+        </section>
+
+        <section>
+        <h2>Personal Stack: Archive</h2>
+        <p>Tag every entry with <code>context:personal</code> so search stays scoped. Anything that is not actionable this week belongs down here.</p>
+        <div class="tier-grid">
+          <div class="tier-card fragment" data-fragment-index="1">
+            <strong>🏗 Projects Archive</strong>
+            <small>Personal projects such as renovations, health plans, or coursework live here once the sprint is over.</small>
+          </div>
+          <div class="tier-card fragment" data-fragment-index="2">
+            <strong>📚 Reference</strong>
+            <small>Long-form learning resources and deep-dive tutorials stay searchable without crowding the bar.</small>
+          </div>
+          <div class="tier-card fragment" data-fragment-index="3">
+            <strong>🧰 Tool Library</strong>
+            <small>Experiments, progressive web apps, and online utilities you want to remember later.</small>
+          </div>
+          <div class="tier-card fragment" data-fragment-index="4">
+            <strong>🛒 Home</strong>
+            <small>Shopping lists, recipes, household management, finances, and other life-admin docs.</small>
+          </div>
+          <div class="tier-card fragment" data-fragment-index="5">
+            <strong>🗄 Archive</strong>
+            <small>Older seasons of life and bulk imports; keep nesting shallow so search keeps working.</small>
+          </div>
+        </div>
+        </section>
+
+        <section>
+        <h2>Work Stack: Bookmark Bar</h2>
+        <p>Muscle-memory links stay up top so you can reset your workspace in seconds and see only the sprint in front of you.</p>
+        <div class="tier-grid">
+          <div class="tier-card fragment" data-fragment-index="1">
+            <strong>🧭 Icon Row</strong>
+            <small>Email, Calendar, Slack, Jira, GitHub, and similar systems are pinned as icons for fast muscle-memory clicks.</small>
+          </div>
+          <div class="tier-card fragment" data-fragment-index="2">
+            <strong>🌅 Startup</strong>
+            <small>Middle-click one folder each morning to open Jira, inbox, calendar, and monitoring tabs in sequence.</small>
+          </div>
+          <div class="tier-card fragment" data-fragment-index="3">
+            <strong>📥 Inbox</strong>
+            <small>Temporary tickets, PRs, or research notes live here; clear it every Friday at 4:30 PM so the bar never becomes storage.</small>
+          </div>
+          <div class="tier-card fragment" data-fragment-index="4">
+            <strong>🗂 Planning</strong>
+            <small>Links to plans, spreadsheets, decks, or Miro boards that actively steer the work.</small>
+          </div>
+          <div class="tier-card fragment" data-fragment-index="5">
+            <strong>🛠 Tools</strong>
+            <small>CI/CD consoles, cloud dashboards, log viewers, and Linear/Jira search views you hop into constantly.</small>
+          </div>
+          <div class="tier-card fragment" data-fragment-index="6">
+            <strong>✈️ InFlight</strong>
+            <small>One folder per engagement. Move it to the archive as soon as the work is signed off.</small>
+          </div>
+          <div class="tier-card fragment" data-fragment-index="7">
+            <strong>📚 Docs</strong>
+            <small>Framework docs, internal wikis, or API specs that you reference weekly.</small>
+          </div>
+          <div class="tier-card fragment" data-fragment-index="8">
+            <strong>📊 Dashboards</strong>
+            <small>Grafana, Looker, or BI boards that give an instant health check.</small>
+          </div>
+        </div>
+        </section>
+
+        <section>
+        <h2>Work Stack: Archive</h2>
+        <p>Everything files into the archive with <code>context:work</code> so search can slice by engagement without touching the bar.</p>
+        <div class="tier-grid">
+          <div class="tier-card fragment" data-fragment-index="1">
+            <strong>🏗 Projects Archive</strong>
+            <small>Project research and engagement-specific resources once the daily grind is done.</small>
+          </div>
+          <div class="tier-card fragment" data-fragment-index="2">
+            <strong>📚 Reference</strong>
+            <small>Playbooks, canonical docs, and API references too valuable to lose.</small>
+          </div>
+          <div class="tier-card fragment" data-fragment-index="3">
+            <strong>🧰 Tool Library</strong>
+            <small>Infra consoles, experiments, or scripts that you do not need on the bar but want one search away.</small>
+          </div>
+          <div class="tier-card fragment" data-fragment-index="4">
+            <strong>🏢 Company</strong>
+            <small>HR, benefits, org charts, policy docs, and anything that keeps company ops separate from engineering flow.</small>
+          </div>
+          <div class="tier-card fragment" data-fragment-index="5">
+            <strong>🗄 Archive</strong>
+            <small>Past projects and deprecated docs filed by year or project so the working set stays tiny.</small>
+          </div>
+        </div>
+        </section>
+
+        <section>
+        <h2>Zero-Inbox Ritual</h2>
+        <p>Let the bar behave like sprint RAM; the archive holds the evidence, context, and compliance trail.</p>
+        <div class="cadence-grid">
+          <div class="cadence-card fragment is-personal" data-fragment-index="1">
+            <h3>Sunday reset</h3>
+            <p><strong>Coffee + inbox triage</strong></p>
+            <small>Treat the personal bar like short-term memory; everything graduating to the archive gets tagged and forgotten until needed.</small>
+          </div>
+          <div class="cadence-card fragment is-work" data-fragment-index="2">
+            <h3>Friday 4:30 PM</h3>
+            <p><strong>Zero-inbox ritual</strong></p>
+            <small>Paging on-call clutter — pause and triage now so the work bar is empty before the weekend handoff.</small>
+          </div>
+        </div>
+        </section>
+      </div>
+    </div>
+
+    <script src="assets/reveal/reveal.js"></script>
+    <script src="assets/reveal/plugin/zoom.js"></script>
+    <script src="assets/reveal/plugin/notes.js"></script>
+    <script src="assets/reveal/plugin/search.js"></script>
+    <script src="assets/reveal/plugin/markdown.js"></script>
+    <script src="assets/reveal/plugin/highlight.js"></script>
+    <script src="assets/deckzero/deckzero.js"></script>
+    <script>
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        hash: true,
+        center: true,
+        transition: "fade",
+        backgroundTransition: "fade",
+        plugins: [RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight]
+      });
+    </script>
+  </body>
+</html>
