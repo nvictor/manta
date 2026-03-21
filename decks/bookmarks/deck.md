@@ -1,24 +1,22 @@
 <!-- layout: title -->
-# Two-Tier Bookmark Guide
+# Two-Tier Bookmark System
 
-An interactive guide to a two-tier bookmark system: the Bookmark Bar for active links (RAM) and the archive for searchable storage (Hard Drive).
+A guide to a two-tier bookmark system: the Bookmark Bar for active links (RAM) and the archive for searchable storage (Hard Drive).
 
 ---
 
-<!-- layout: split:text-image -->
 ## The Two-Tier System
 
 Treat your browser bookmarks like short-term memory and your bookmark manager like long-term storage.
 
 <div>
-  <ul>
-    <li><strong>Tier 1: Bookmark bar.</strong> For active, high-frequency links. This is your clickable workspace.</li>
-    <li><strong>Tier 2: Archive.</strong> For searchable long-term storage. Tag every entry with context so search stays scoped.</li>
-  </ul>
+  <h3>Tier 1: Bookmark bar</h3>
+  <p>For active, high-frequency links. This is your clickable workspace.</p>
 </div>
 
 <div>
-  <img src="assets/media/bookmarks-icon.svg" alt="Bookmarks icon" />
+  <h3>Tier 2: Archive</h3>
+  <p>For searchable long-term storage. Tag every entry with context so search stays scoped.</p>
 </div>
 
 ---
@@ -50,7 +48,7 @@ This is your clickable workspace. Organize icons by muscle memory and folders by
 
 ## Personal Stack: Archive
 
-Tag every entry with `context:personal` so search stays scoped. Anything that is not actionable this week belongs down here.
+Anything that is not actionable this week belongs down here.
 
 <div class="tier-grid">
   <div class="tier-card fragment" data-fragment-index="1">
@@ -120,7 +118,7 @@ Muscle-memory links stay up top so you can reset your workspace in seconds and s
 
 ## Work Stack: Archive
 
-Everything files into the archive with `context:work` so search can slice by engagement without touching the bar.
+Everything in the archive is searchable without touching the bar.
 
 <div class="tier-grid">
   <div class="tier-card fragment" data-fragment-index="1">
