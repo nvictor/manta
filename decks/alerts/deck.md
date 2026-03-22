@@ -87,16 +87,16 @@ Each pair combines a severity, a long window, and a short confirming window. The
 
 Use a small set of pairs that map cleanly to page and ticket policies.
 
-<div class="derivation-grid">
-  <div class="pair-card is-page fragment" data-fragment-index="1">
+<div class="dz-card-grid" data-dz-columns="3">
+  <div class="dz-card dz-tone-danger fragment" data-fragment-index="1">
     <h3>Fast page: 1h / 5m paired windows.</h3>
     <p>Use for catastrophic incidents that spend 2% of the monthly budget in one hour.</p>
   </div>
-  <div class="pair-card is-page fragment" data-fragment-index="2">
+  <div class="dz-card dz-tone-danger fragment" data-fragment-index="2">
     <h3>Steady page: 6h / 30m paired windows.</h3>
     <p>Use for brownouts that quietly spend 5% of the budget across several hours.</p>
   </div>
-  <div class="pair-card is-ticket fragment" data-fragment-index="3">
+  <div class="dz-card dz-tone-warning fragment" data-fragment-index="3">
     <h3>Slow ticket: 3d / 6h paired windows.</h3>
     <p>Use for chronic regressions that consume 10% of the budget without paging overnight.</p>
   </div>

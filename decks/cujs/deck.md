@@ -70,24 +70,24 @@ CUJs make reliability work legible to both engineering and the business.
 
 Not every shopping action carries the same reliability weight. Focus on the steps where user intent turns into completed value.
 
-<div class="journey-list">
-  <div class="step-chip is-common">
+<div class="dz-card-grid" data-dz-columns="2">
+  <div class="dz-card dz-tone-neutral">
     <strong>Browse product catalog</strong>
     <small>Useful, but not where user value is completed.</small>
   </div>
-  <div class="step-chip is-common">
+  <div class="dz-card dz-tone-neutral">
     <strong>Search by keyword</strong>
     <small>Important discovery aid, but still pre-transaction.</small>
   </div>
-  <div class="step-chip fragment is-critical">
+  <div class="dz-card dz-tone-success fragment">
     <strong>Add item to cart</strong>
     <small>Begins the committed purchase path.</small>
   </div>
-  <div class="step-chip fragment is-critical">
+  <div class="dz-card dz-tone-success fragment">
     <strong>Complete purchase and payment</strong>
     <small>Value is realized here. This is the core critical activity.</small>
   </div>
-  <div class="step-chip is-common">
+  <div class="dz-card dz-tone-neutral">
     <strong>Receive order confirmation</strong>
     <small>Important feedback, but secondary to transaction completion.</small>
   </div>
@@ -99,16 +99,16 @@ Not every shopping action carries the same reliability weight. Focus on the step
 
 Each step should be paired with the signal that best exposes user-visible failure along the journey.
 
-<div class="journey-list signal-list">
-  <div class="step-chip fragment is-latency" data-fragment-index="1">
+<div class="dz-card-grid" data-dz-columns="2">
+  <div class="dz-card dz-tone-info fragment" data-fragment-index="1">
     <strong>Latency: Checkout submit</strong>
     <small>Slow submit flow is directly user-visible friction.</small>
   </div>
-  <div class="step-chip fragment is-availability" data-fragment-index="2">
+  <div class="dz-card dz-tone-success fragment" data-fragment-index="2">
     <strong>Availability: Payment authorization</strong>
     <small>Success or failure matters more than minor speed variation.</small>
   </div>
-  <div class="step-chip fragment is-latency" data-fragment-index="3">
+  <div class="dz-card dz-tone-info fragment" data-fragment-index="3">
     <strong>Latency: Checkout page load</strong>
     <small>Load time is a front-door signal for the purchase path.</small>
   </div>

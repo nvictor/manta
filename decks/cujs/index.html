@@ -18,58 +18,6 @@
         --dz-panel-muted: rgba(236, 242, 252, 0.92);
         --dz-font-sans: "Avenir Next", "Segoe UI", sans-serif;
       }
-
-      .journey-list {
-        display: grid;
-        gap: 0.8rem;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .signal-list {
-        align-items: start;
-      }
-
-      .step-chip {
-        border: 1px solid color-mix(in srgb, var(--dz-accent) 18%, #cbd5e1);
-        border-radius: 1rem;
-        padding: 0.9rem 1rem;
-        background: rgba(255, 255, 255, 0.92);
-      }
-
-      .step-chip strong {
-        display: block;
-        margin-bottom: 0.35rem;
-      }
-
-      .is-critical {
-        border-color: color-mix(in srgb, #0f766e 40%, #d1fae5);
-        background: #ecfdf5;
-      }
-
-      .is-common {
-        border-color: color-mix(in srgb, #94a3b8 38%, #e2e8f0);
-        background: #f8fafc;
-      }
-
-      .is-latency {
-        border-color: color-mix(in srgb, #2563eb 38%, #bfdbfe);
-        background: #eff6ff;
-      }
-
-      .is-availability {
-        border-color: color-mix(in srgb, #0f766e 40%, #bbf7d0);
-        background: #ecfdf5;
-      }
-
-      .step-chip small {
-        color: #475569;
-      }
-
-      @media (max-width: 900px) {
-        .journey-list {
-          grid-template-columns: 1fr;
-        }
-      }
     </style>
   </head>
   <body>
@@ -143,24 +91,24 @@
         <section>
         <h2>Example Journey: Online Shopping</h2>
         <p>Not every shopping action carries the same reliability weight. Focus on the steps where user intent turns into completed value.</p>
-        <div class="journey-list">
-          <div class="step-chip is-common">
+        <div class="dz-card-grid" data-dz-columns="2">
+          <div class="dz-card dz-tone-neutral">
             <strong>Browse product catalog</strong>
             <small>Useful, but not where user value is completed.</small>
           </div>
-          <div class="step-chip is-common">
+          <div class="dz-card dz-tone-neutral">
             <strong>Search by keyword</strong>
             <small>Important discovery aid, but still pre-transaction.</small>
           </div>
-          <div class="step-chip fragment is-critical">
+          <div class="dz-card dz-tone-success fragment">
             <strong>Add item to cart</strong>
             <small>Begins the committed purchase path.</small>
           </div>
-          <div class="step-chip fragment is-critical">
+          <div class="dz-card dz-tone-success fragment">
             <strong>Complete purchase and payment</strong>
             <small>Value is realized here. This is the core critical activity.</small>
           </div>
-          <div class="step-chip is-common">
+          <div class="dz-card dz-tone-neutral">
             <strong>Receive order confirmation</strong>
             <small>Important feedback, but secondary to transaction completion.</small>
           </div>
@@ -170,16 +118,16 @@
         <section>
         <h2>Signal Mapping</h2>
         <p>Each step should be paired with the signal that best exposes user-visible failure along the journey.</p>
-        <div class="journey-list signal-list">
-          <div class="step-chip fragment is-latency" data-fragment-index="1">
+        <div class="dz-card-grid" data-dz-columns="2">
+          <div class="dz-card dz-tone-info fragment" data-fragment-index="1">
             <strong>Latency: Checkout submit</strong>
             <small>Slow submit flow is directly user-visible friction.</small>
           </div>
-          <div class="step-chip fragment is-availability" data-fragment-index="2">
+          <div class="dz-card dz-tone-success fragment" data-fragment-index="2">
             <strong>Availability: Payment authorization</strong>
             <small>Success or failure matters more than minor speed variation.</small>
           </div>
-          <div class="step-chip fragment is-latency" data-fragment-index="3">
+          <div class="dz-card dz-tone-info fragment" data-fragment-index="3">
             <strong>Latency: Checkout page load</strong>
             <small>Load time is a front-door signal for the purchase path.</small>
           </div>

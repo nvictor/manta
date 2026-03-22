@@ -20,49 +20,6 @@
         --dz-panel-muted: rgba(255, 244, 240, 0.95);
         --dz-font-sans: "Avenir Next", "Segoe UI", sans-serif;
       }
-
-      .scenario-grid {
-        display: grid;
-        gap: 0.8rem;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
-
-      .scenario-card {
-        border: 1px solid color-mix(in srgb, var(--dz-accent) 18%, #e7cfc8);
-        border-radius: 1rem;
-        padding: 0.95rem 1rem;
-        background: rgba(255, 255, 255, 0.94);
-      }
-
-      .scenario-card strong {
-        display: block;
-        margin-bottom: 0.35rem;
-      }
-
-      .scenario-card small {
-        color: #6f463e;
-      }
-
-      .is-page {
-        border-color: color-mix(in srgb, #b42318 42%, #fecaca);
-        background: #fff1f2;
-      }
-
-      .is-investigate {
-        border-color: color-mix(in srgb, #b45309 42%, #fde68a);
-        background: #fff7ed;
-      }
-
-      .is-observe {
-        border-color: color-mix(in srgb, #0f766e 38%, #bbf7d0);
-        background: #ecfdf5;
-      }
-
-      @media (max-width: 900px) {
-        .scenario-grid {
-          grid-template-columns: 1fr;
-        }
-      }
     </style>
   </head>
   <body>
@@ -118,16 +75,16 @@
         <section>
         <h2>Routing Logic</h2>
         <p>The routing rule depends on burn rate, impact, and whether the condition is sustained across windows.</p>
-        <div class="scenario-grid">
-          <div class="scenario-card fragment is-observe" data-fragment-index="1">
+        <div class="dz-card-grid" data-dz-columns="3">
+          <div class="dz-card dz-tone-success fragment" data-fragment-index="1">
             <strong>Observe</strong>
             <small>No urgent page signal. Keep diagnostics visible and monitor for trend changes.</small>
           </div>
-          <div class="scenario-card fragment is-investigate" data-fragment-index="2">
+          <div class="dz-card dz-tone-warning fragment" data-fragment-index="2">
             <strong>Investigate</strong>
             <small>The system is abnormal, but SLO burn is not yet severe and sustained. Route as warning, not a page.</small>
           </div>
-          <div class="scenario-card fragment is-page" data-fragment-index="3">
+          <div class="dz-card dz-tone-danger fragment" data-fragment-index="3">
             <strong>Page now</strong>
             <small>Users are likely feeling pain and the SLO burn is sustained. This is a paging event.</small>
           </div>

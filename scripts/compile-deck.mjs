@@ -5,7 +5,7 @@ import { fileURLToPath, pathToFileURL } from "node:url";
 const currentDir = path.dirname(fileURLToPath(import.meta.url));
 const projectRoot = path.resolve(currentDir, "..");
 const decksRoot = path.join(projectRoot, "decks");
-const deckzeroCompilerUrl = pathToFileURL(path.resolve(projectRoot, "../deckzero/scripts/compile-markdown.mjs")).href;
+const deckzeroCompilerUrl = pathToFileURL(path.resolve(projectRoot, "../deckzero/src/compiler/index.mjs")).href;
 const { compileMarkdownDeck } = await import(deckzeroCompilerUrl);
 
 function indentBlock(value, indent) {

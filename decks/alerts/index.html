@@ -20,44 +20,6 @@
         --dz-panel-muted: rgba(240, 244, 255, 0.94);
         --dz-font-sans: "Avenir Next", "Segoe UI", sans-serif;
       }
-
-      .derivation-grid {
-        display: grid;
-        gap: 0.8rem;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
-
-      .pair-card {
-        border: 1px solid color-mix(in srgb, var(--dz-accent) 18%, #cfd8ee);
-        border-radius: 1rem;
-        padding: 0.95rem 1rem;
-        background: rgba(255, 255, 255, 0.94);
-      }
-
-      .pair-card small {
-        color: #4f5f85;
-      }
-
-      .is-page {
-        border-color: color-mix(in srgb, #b42318 40%, #fecaca);
-        background: #fff1f2;
-      }
-
-      .is-ticket {
-        border-color: color-mix(in srgb, #b45309 38%, #fde68a);
-        background: #fff7ed;
-      }
-
-      .is-calm {
-        border-color: color-mix(in srgb, #0f766e 38%, #bbf7d0);
-        background: #ecfdf5;
-      }
-
-      @media (max-width: 900px) {
-        .derivation-grid {
-          grid-template-columns: 1fr;
-        }
-      }
     </style>
   </head>
   <body>
@@ -144,16 +106,16 @@
         <section>
         <h2>Recommended Alert Pairs</h2>
         <p>Use a small set of pairs that map cleanly to page and ticket policies.</p>
-        <div class="derivation-grid">
-          <div class="pair-card is-page fragment" data-fragment-index="1">
+        <div class="dz-card-grid" data-dz-columns="3">
+          <div class="dz-card dz-tone-danger fragment" data-fragment-index="1">
             <h3>Fast page: 1h / 5m paired windows.</h3>
             <p>Use for catastrophic incidents that spend 2% of the monthly budget in one hour.</p>
           </div>
-          <div class="pair-card is-page fragment" data-fragment-index="2">
+          <div class="dz-card dz-tone-danger fragment" data-fragment-index="2">
             <h3>Steady page: 6h / 30m paired windows.</h3>
             <p>Use for brownouts that quietly spend 5% of the budget across several hours.</p>
           </div>
-          <div class="pair-card is-ticket fragment" data-fragment-index="3">
+          <div class="dz-card dz-tone-warning fragment" data-fragment-index="3">
             <h3>Slow ticket: 3d / 6h paired windows.</h3>
             <p>Use for chronic regressions that consume 10% of the budget without paging overnight.</p>
           </div>
