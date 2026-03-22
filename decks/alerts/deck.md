@@ -42,7 +42,6 @@ These numbers express budget spend over time.
   <h3>Slow ticket: 1×</h3>
   <p>Spend <strong>10%</strong> of the budget across <strong>3 days</strong>.</p>
   <p>This is slow enough for business-hours follow-up rather than an immediate page.</p>
-  <h3>The math:</h3>
 </div>
 
 ---
