@@ -1,33 +1,14 @@
 <!-- layout: title -->
 # Multi-window, Multi-burn-rate Alerts
 
-Walk from error budgets to alert policy. The goal is to page on meaningful user pain, not on every infrastructure tremor.
-
----
-
-<!-- layout: split:text-image -->
-## Start From the Budget
-
-Burn-rate alerting works because it ties incident response to how quickly the service is consuming its allowed error budget.
-
-<div>
-  <ul>
-    <li>A 99.9% availability SLO leaves 0.1% budget for failure.</li>
-    <li>Burn rate measures how fast the current error rate spends that budget.</li>
-    <li>Multiple windows help distinguish significant incidents from noise.</li>
-  </ul>
-</div>
-
-<div>
-  <img src="assets/media/alerts-icon.svg" alt="Burn-rate alerts icon" />
-</div>
+From error budgets to alert policy. The goal is to page on meaningful user pain, not on every infrastructure tremor.
 
 ---
 
 <!-- layout: split:text-text -->
 ## Core Ideas
 
-These are the minimum concepts you need before picking thresholds.
+Core concepts and ideas.
 
 <div>
   <h3>Start from the error budget</h3>
@@ -45,19 +26,9 @@ These are the minimum concepts you need before picking thresholds.
 
 ---
 
-## Why 14.4x and 6x
+## Why 14.4x, 6x, and 1x
 
-The numbers become intuitive once you read them as budget spend over time, not as isolated thresholds.
-
-For a 30-day SLO window, burn rate asks a simple question: how fast are we spending the budget?
-
-A fast page spends a small budget chunk very quickly. A slower ticket allows the same math to stretch across a much longer window.
-
----
-
-## Why 14.4x and 6x
-
-Read each threshold as a severity policy expressed in budget spend over time.
+These numbers express budget spend over time.
 
 <div>
   <h3>Fast page: 14.4×</h3>
@@ -71,15 +42,18 @@ Read each threshold as a severity policy expressed in budget spend over time.
   <h3>Slow ticket: 1×</h3>
   <p>Spend <strong>10%</strong> of the budget across <strong>3 days</strong>.</p>
   <p>This is slow enough for business-hours follow-up rather than an immediate page.</p>
+  <h3>The math:</h3>
 </div>
 
 ---
 
-## Recommended Alert Pairs
+## Alert Pairs
 
 Start with a small set of alert pairs and keep the short window near one-twelfth of the long window.
 
-Each pair combines a severity, a long window, and a short confirming window. The short window keeps resets clean. The long window makes sure the alert reflects meaningful budget spend.
+Each pair combines a severity, a long window, and a short confirming window.
+
+The short window keeps resets clean. The long window makes sure the alert reflects meaningful budget spend.
 
 ---
 
@@ -121,23 +95,4 @@ Use a small set of pairs that map cleanly to page and ticket policies.
   <h3>Time-varying recovery</h3>
   <p>Short windows calm down first after a surge.</p>
   <p>The long window still shows lingering spend, which is why paired windows make resets cleaner.</p>
-</div>
-
----
-
-## Rollout Checklist
-
-Adoption is operational, not just mathematical.
-
-<div>
-  <h3>1. Quantify the SLO</h3>
-  <p>Know the SLO, the measurement window, and the size of the error budget.</p>
-  <h3>2. Map severities</h3>
-  <p>Decide which budget spend levels justify a page and which only justify a ticket.</p>
-</div>
-<div>
-  <h3>3. Derive thresholds</h3>
-  <p>Translate those spend levels into burn-rate thresholds over specific long windows.</p>
-  <h3>4. Pair windows</h3>
-  <p>Add short confirmation windows so alerts reset quickly once the incident recovers.</p>
 </div>
