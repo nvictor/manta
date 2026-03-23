@@ -52,7 +52,7 @@ CUJs make reliability work legible to both engineering and the business.
 
 <div>
   <h3>Better SLO alignment</h3>
-  <p>Objectives stay tied to user success instead of internal subsystem vanity metrics.</p>
+  <p>Objectives stay tied to user success instead of internal subsystem metrics.</p>
   <h3>Clearer incident triage</h3>
   <p>A broken purchase flow deserves a different response than degraded browsing.</p>
 </div>
