@@ -1,7 +1,7 @@
 <!-- layout: title -->
 # HolmesGPT Architecture
 
-Learn why HolmesGPT works for incident debugging, where general agent stacks win, and how to choose the right operating model.
+Learn why HolmesGPT works for incident debugging, where general agent stacks win.
 
 ---
 
@@ -28,12 +28,17 @@ HolmesGPT is strongest when incident response needs guided investigation rather 
 
 The system works because it can correlate incident evidence from multiple channels, not because it has one smart model prompt.
 
-<p>Use the architecture map as a reminder of where investigation context actually comes from during RCA.</p>
-<ul>
-  <li>Alerting and collaboration systems provide the starting signal.</li>
-  <li>Observability, infrastructure, and runbooks supply evidence.</li>
-  <li>The model layer turns structured evidence into diagnosis and next actions.</li>
-</ul>
+<div class="dz-card-grid" data-dz-columns="3">
+  <div class="dz-card fragment" data-fragment-index="1">
+    <p>Alerting and collaboration systems provide the starting signal.</p>
+  </div>
+  <div class="dz-card fragment" data-fragment-index="2">
+    <p>Observability, infrastructure, and runbooks supply evidence.</p>
+  </div>
+  <div class="dz-card fragment" data-fragment-index="3">
+    <p>The model layer turns structured evidence into diagnosis and next actions.</p>
+  </div>
+</div>
 
 ---
 
@@ -71,37 +76,6 @@ These are the main input classes HolmesGPT pulls together during incident analys
 
 ---
 
-## Concept Modules
-
-<div class="dz-card-grid" data-dz-columns="3">
-  <div class="dz-card fragment" data-fragment-index="1">
-    <strong>Purpose-built troubleshooting agent</strong>
-    <small>Hypothesis-driven investigation beats generic model-wrapper behavior during incidents.</small>
-  </div>
-  <div class="dz-card fragment" data-fragment-index="2">
-    <strong>Embedded runbooks and incident patterns</strong>
-    <small>Prepackaged playbooks reduce how much reasoning infrastructure teams must build themselves.</small>
-  </div>
-  <div class="dz-card fragment" data-fragment-index="3">
-    <strong>Tooling control over tool explosion</strong>
-    <small>Curated commands and guided query plans improve consistency under pressure.</small>
-  </div>
-  <div class="dz-card fragment" data-fragment-index="4">
-    <strong>Cross-signal correlation</strong>
-    <small>Real incidents require chaining metrics, logs, traces, events, and deploy history.</small>
-  </div>
-  <div class="dz-card fragment" data-fragment-index="5">
-    <strong>Integrated incident operations</strong>
-    <small>Diagnosis should connect directly to paging, collaboration, tickets, and remediation workflows.</small>
-  </div>
-  <div class="dz-card fragment" data-fragment-index="6">
-    <strong>Product vs platform tradeoff</strong>
-    <small>The architecture choice depends on domain fit, breadth, and the cost of custom playbooks.</small>
-  </div>
-</div>
-
----
-
 ## Investigation Loop
 
 The loop enforces evidence-backed progress instead of repetitive tool chatter.
@@ -133,57 +107,3 @@ The loop enforces evidence-backed progress instead of repetitive tool chatter.
     <small>Publish root cause, confidence, and next actions for responders.</small>
   </div>
 </div>
-
----
-
-## Cross-Signal Reasoning Path
-
-A good RCA chain moves from symptom to infrastructure evidence to the actual change that broke the system.
-
-<div class="dz-sequence" data-dz-columns="5">
-  <article class="dz-sequence-node fragment" data-fragment-index="1">
-    <span class="dz-step-badge">1</span>
-    <p>API latency spike</p>
-  </article>
-  <article class="dz-sequence-node fragment" data-fragment-index="2">
-    <span class="dz-step-badge">2</span>
-    <p>Pod CPU saturation</p>
-  </article>
-  <article class="dz-sequence-node fragment" data-fragment-index="3">
-    <span class="dz-step-badge">3</span>
-    <p>Node pressure events</p>
-  </article>
-  <article class="dz-sequence-node fragment" data-fragment-index="4">
-    <span class="dz-step-badge">4</span>
-    <p>Recent deployment diff</p>
-  </article>
-  <article class="dz-sequence-node fragment dz-tone-warning" data-fragment-index="5">
-    <span class="dz-step-badge">5</span>
-    <p>Bad config and memory leak</p>
-  </article>
-</div>
-
----
-
-## Tool Load Scenarios
-
-<div class="dz-card-grid" data-dz-columns="3">
-  <div class="dz-card dz-tone-success fragment" data-fragment-index="1">
-    <strong>Low tool load</strong>
-    <small>Roughly 20 to 40 total tools. Generic MCP-style setups are usually manageable.</small>
-  </div>
-  <div class="dz-card dz-tone-warning fragment" data-fragment-index="2">
-    <strong>Rising coordination cost</strong>
-    <small>Roughly 50 to 80 total tools. Curated tool plans and guardrails start to pay off.</small>
-  </div>
-  <div class="dz-card dz-tone-danger fragment" data-fragment-index="3">
-    <strong>Tool explosion zone</strong>
-    <small>100 or more total tools. Structured workflows like HolmesGPT become much more reliable.</small>
-  </div>
-</div>
-
----
-
-## Practical Rule
-
-Choose HolmesGPT when guided cloud-native RCA is the product you need now. Choose a broader agent platform when customization pressure is the main constraint. Use a hybrid model when both are true.

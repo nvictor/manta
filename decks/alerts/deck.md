@@ -26,7 +26,7 @@ Core concepts and ideas.
 
 ---
 
-## Why 14.4x, 6x, and 1x
+## Why 14.4x and 6x
 
 These numbers express budget spend over time.
 
