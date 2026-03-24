@@ -1,11 +1,12 @@
 import fs from "node:fs/promises";
 import path from "node:path";
-import { fileURLToPath, pathToFileURL } from "node:url";
+import { createRequire } from "node:module";
+import { pathToFileURL } from "node:url";
 
-const currentDir = path.dirname(fileURLToPath(import.meta.url));
-const projectRoot = path.resolve(currentDir, "..");
-const decksRoot = path.join(projectRoot, "decks");
-const deckzeroCompilerUrl = pathToFileURL(path.resolve(projectRoot, "../deckzero/src/compiler/index.mjs")).href;
+import { collectDeckNames, projectRoot, syncDeckzeroAssets } from "./deck-paths.mjs";
+
+const require = createRequire(import.meta.url);
+const deckzeroCompilerUrl = pathToFileURL(require.resolve("deckzero/compiler")).href;
 const { compileMarkdownDeck } = await import(deckzeroCompilerUrl);
 
 function indentBlock(value, indent) {
@@ -83,16 +84,7 @@ ${indentBlock(slidesHtml, 8)}
 }
 
 async function compileDeck(deckName) {
-  const directDir = path.join(projectRoot, deckName);
-  const nestedDir = path.join(decksRoot, deckName);
-  let deckDir = nestedDir;
-
-  try {
-    await fs.access(path.join(directDir, "deck.config.json"));
-    deckDir = directDir;
-  } catch {
-    deckDir = nestedDir;
-  }
+  const { deckDir } = await syncDeckzeroAssets(deckName);
 
   const markdownPath = path.join(deckDir, "deck.md");
   const configPath = path.join(deckDir, "deck.config.json");
@@ -109,36 +101,6 @@ async function compileDeck(deckName) {
 
   await fs.writeFile(outputPath, documentHtml);
   console.log("Compiled " + path.relative(projectRoot, outputPath) + " from deck.md");
-}
-
-async function collectDeckNames() {
-  const names = new Set();
-
-  const rootEntries = await fs.readdir(projectRoot, { withFileTypes: true });
-  for (const entry of rootEntries) {
-    if (!entry.isDirectory() || entry.name === ".git" || entry.name === "decks" || entry.name === "scripts") {
-      continue;
-    }
-    try {
-      await fs.access(path.join(projectRoot, entry.name, "deck.config.json"));
-      names.add(entry.name);
-    } catch {}
-  }
-
-  try {
-    const nestedEntries = await fs.readdir(decksRoot, { withFileTypes: true });
-    for (const entry of nestedEntries) {
-      if (!entry.isDirectory()) {
-        continue;
-      }
-      try {
-        await fs.access(path.join(decksRoot, entry.name, "deck.config.json"));
-        names.add(entry.name);
-      } catch {}
-    }
-  } catch {}
-
-  return Array.from(names).sort();
 }
 
 const requestedDecks = process.argv.slice(2);

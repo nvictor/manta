@@ -2,7 +2,11 @@
   "name": "manta",
   "private": true,
   "type": "module",
+  "dependencies": {
+    "deckzero": "github:nvictor/deckzero"
+  },
   "scripts": {
+    "sync-deckzero": "node ./scripts/sync-deckzero-assets.mjs",
     "compile-decks": "node ./scripts/compile-deck.mjs",
     "compile:alerts": "node ./scripts/compile-deck.mjs alerts",
     "compile:bookmarks": "node ./scripts/compile-deck.mjs bookmarks",
