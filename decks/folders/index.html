@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Design Folder Organization</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="assets/reveal/reset.css" />
+    <link rel="stylesheet" href="assets/reveal/reveal.css" />
+    <link rel="stylesheet" href="assets/reveal/plugin/highlight/monokai.css" />
+    <link rel="stylesheet" href="assets/deckzero/deckzero.css" />
+    <link rel="stylesheet" href="assets/deckzero/themes/light.css" />
+    <style>
+      .reveal {
+        --dz-accent: #14532d;
+        --dz-bg: #f4fbf7;
+        --dz-fg: #173126;
+        --dz-muted: #4f6b5f;
+        --dz-panel: rgba(255, 255, 255, 0.96);
+        --dz-panel-muted: rgba(237, 247, 241, 0.94);
+        --dz-font-sans: "Avenir Next", "Segoe UI", sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      class="reveal"
+      data-dz-brand-src="assets/media/default.svg"
+      data-dz-brand-style="logo"
+      data-dz-brand-position="top-right"
+      data-dz-brand-alt="deckzero"
+      data-dz-theme="light"
+    >
+      <div class="slides">
+        <section>
+        <!-- layout: title -->
+        <h1>Design Folder Organization</h1>
+        <p>The goal is simple: keep capture effortless, keep current work visible, and stop forcing every document into a type-based taxonomy.</p>
+        </section>
+
+        <section>
+        <!-- layout: split:text-text -->
+        <h2>Why the Old Structure Creates Friction</h2>
+        <p>The document says the problem is not a lack of folders. It is too much precision too early.</p>
+        <div>
+          <h3>Mixed dimensions</h3>
+          <p>Folders combine content type, life area, and intent, so every filing decision becomes interpretive work.</p>
+          <h3>Micro-decisions everywhere</h3>
+          <p>Notes versus snippets versus reference sounds tidy, but it creates hesitation at the moment of capture.</p>
+        </div>
+        <div>
+          <h3>Knowledge turns into a junk drawer</h3>
+          <p>When reusable material has one vague home, retrieval gets worse instead of better.</p>
+          <h3>Inbox already proves the point</h3>
+          <p>The current inbox works because it is low-friction, fast, and decision-light.</p>
+        </div>
+        </section>
+
+        <section>
+        <h2>Organize by Function, Not Type</h2>
+        <p>Each top-level folder should answer one question only.</p>
+        <div class="dz-card-grid" data-dz-columns="3">
+          <div class="dz-card dz-tone-info fragment" data-fragment-index="1">
+            <strong>Inbox</strong>
+            <small>Where does this go right now?</small>
+          </div>
+          <div class="dz-card dz-tone-success fragment" data-fragment-index="2">
+            <strong>Active</strong>
+            <small>What am I currently thinking about?</small>
+          </div>
+          <div class="dz-card fragment" data-fragment-index="3">
+            <strong>Projects</strong>
+            <small>What has an outcome?</small>
+          </div>
+          <div class="dz-card fragment" data-fragment-index="4">
+            <strong>Areas</strong>
+            <small>What responsibilities never really end?</small>
+          </div>
+          <div class="dz-card fragment" data-fragment-index="5">
+            <strong>Library or Reference</strong>
+            <small>What do I mainly want to retrieve later?</small>
+          </div>
+          <div class="dz-card dz-tone-muted fragment" data-fragment-index="6">
+            <strong>Archive</strong>
+            <small>What is done or irrelevant now?</small>
+          </div>
+        </div>
+        </section>
+
+        <section>
+        <h2>Recommended Work Structure</h2>
+        <p>For the work reorg, the document recommends this shape.</p>
+        <div>
+          <pre><code>design/
+        ├── inbox/
+        ├── active/
+        ├── projects/
+        ├── areas/
+        ├── reference/
+        └── archive/</code></pre>
+        </div>
+
+        <div>
+          <h3>The big change is <code>active/</code></h3>
+          <p>Current initiatives, messy planning, perf investigations, and half-finished thinking get a first-class home.</p>
+        </div>
+        </section>
+
+        <section>
+        <h2>What Goes Where in Work</h2>
+        <p>The key move is to sort by purpose rather than file type.</p>
+        <div class="dz-card-grid">
+          <div class="dz-card fragment" data-fragment-index="1">
+            <strong><code>inbox/</code></strong>
+            <small>Fast capture with zero thinking.</small>
+          </div>
+          <div class="dz-card fragment" data-fragment-index="2">
+            <strong><code>active/</code></strong>
+            <small>Current initiatives, on-call issues, and tactical in-progress work.</small>
+          </div>
+          <div class="dz-card fragment" data-fragment-index="3">
+            <strong><code>projects/</code></strong>
+            <small>Deliverable-driven efforts such as launches, migrations, decks, and named initiatives.</small>
+          </div>
+          <div class="dz-card fragment" data-fragment-index="4">
+            <strong><code>areas/</code></strong>
+            <small>Career, engineering, operations, and strategy live here because they do not end.</small>
+          </div>
+          <div class="dz-card fragment" data-fragment-index="5">
+            <strong><code>reference/</code></strong>
+            <small>Static or reusable docs like guides, architecture notes, and AI material.</small>
+          </div>
+          <div class="dz-card fragment" data-fragment-index="6">
+            <strong><code>archive/</code></strong>
+            <small>Finished projects and superseded context that should leave the working set.</small>
+          </div>
+        </div>
+        </section>
+
+        <section>
+        <!-- layout: split:text-text -->
+        <h2>Rule Changes That Make It Work</h2>
+        <p>The folder names matter, but the operating rules matter more.</p>
+        <div>
+          <h3>Default destination is <code>active/</code></h3>
+          <p>When you are unsure, put it with current thinking instead of chasing a perfect category.</p>
+          <h3>Stop distinguishing notes, ideas, and snippets</h3>
+          <p>They are all documents. Let naming and search carry the meaning.</p>
+        </div>
+        <div>
+          <h3>Flatten the tree</h3>
+          <p>The guidance is to reduce depth aggressively and keep the structure close to two levels when possible.</p>
+          <h3>Projects contain everything</h3>
+          <p>No notes folder, ideas folder, or drafts folder inside the project. If it belongs, it stays there.</p>
+        </div>
+        </section>
+
+        <section>
+        <h2>Personal vs Work Naming</h2>
+        <p>The role is similar in both systems, but the document intentionally uses different names.</p>
+        <div class="dz-card-grid" data-dz-columns="2">
+          <div class="dz-card dz-tone-info fragment" data-fragment-index="1">
+            <h3>Personal uses <code>library/</code></h3>
+            <p>Broader, more idea-heavy, and better suited to a creative personal system.</p>
+            <small>The personal tree emphasizes creativity, expression, and low-friction exploration.</small>
+          </div>
+          <div class="dz-card dz-tone-success fragment" data-fragment-index="2">
+            <h3>Work uses <code>reference/</code></h3>
+            <p>Practical, reusable, and easier to scan in a work context.</p>
+            <small>The document explicitly says this rename matches how work brains think.</small>
+          </div>
+        </div>
+        </section>
+
+        <section>
+        <h2>Weekly Inbox Reset</h2>
+        <p>The maintenance ritual is intentionally tiny so the system can survive real life.</p>
+        <div class="dz-card-grid" data-dz-columns="4">
+          <div class="dz-card dz-tone-info fragment" data-fragment-index="1">
+            <strong>Open inbox</strong>
+            <small>Start from the capture pile.</small>
+          </div>
+          <div class="dz-card dz-tone-success fragment" data-fragment-index="2">
+            <strong>Still active?</strong>
+            <small>Move it to <code>active/</code>.</small>
+          </div>
+          <div class="dz-card fragment" data-fragment-index="3">
+            <strong>Has an outcome?</strong>
+            <small>Move it to <code>projects/</code>.</small>
+          </div>
+          <div class="dz-card dz-tone-muted fragment" data-fragment-index="4">
+            <strong>Reference or delete</strong>
+            <small>If it is reusable, file it. Otherwise, remove it.</small>
+          </div>
+        </div>
+        </section>
+
+        <section>
+        <h2>End State</h2>
+        <p>This reorg keeps what already works and simplifies everything after capture.</p>
+        <div class="dz-card-grid" data-dz-columns="3">
+          <div class="dz-card dz-tone-success fragment" data-fragment-index="1">
+            <strong>Fast capture</strong>
+            <small><code>inbox/</code> stays easy and trusted.</small>
+          </div>
+          <div class="dz-card dz-tone-info fragment" data-fragment-index="2">
+            <strong>Low-pressure thinking</strong>
+            <small><code>active/</code> gives unfinished work a real home.</small>
+          </div>
+          <div class="dz-card fragment" data-fragment-index="3">
+            <strong>Cleaner retrieval</strong>
+            <small><code>projects/</code>, <code>areas/</code>, and <code>reference/</code> each have one job.</small>
+          </div>
+        </div>
+        </section>
+      </div>
+    </div>
+
+    <script src="assets/reveal/reveal.js"></script>
+    <script src="assets/reveal/plugin/zoom.js"></script>
+    <script src="assets/reveal/plugin/notes.js"></script>
+    <script src="assets/reveal/plugin/search.js"></script>
+    <script src="assets/reveal/plugin/markdown.js"></script>
+    <script src="assets/reveal/plugin/highlight.js"></script>
+    <script src="assets/deckzero/deckzero.js"></script>
+    <script>
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        hash: true,
+        center: true,
+        transition: "fade",
+        backgroundTransition: "fade",
+        plugins: [RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight]
+      });
+    </script>
+  </body>
+</html>

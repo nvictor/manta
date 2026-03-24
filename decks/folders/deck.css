@@ -1,0 +1,9 @@
+.reveal {
+  --dz-accent: #14532d;
+  --dz-bg: #f4fbf7;
+  --dz-fg: #173126;
+  --dz-muted: #4f6b5f;
+  --dz-panel: rgba(255, 255, 255, 0.96);
+  --dz-panel-muted: rgba(237, 247, 241, 0.94);
+  --dz-font-sans: "Avenir Next", "Segoe UI", sans-serif;
+}

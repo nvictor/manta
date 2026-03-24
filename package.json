@@ -11,6 +11,7 @@
     "compile:alerts": "node ./scripts/compile-deck.mjs alerts",
     "compile:bookmarks": "node ./scripts/compile-deck.mjs bookmarks",
     "compile:cujs": "node ./scripts/compile-deck.mjs cujs",
+    "compile:folders": "node ./scripts/compile-deck.mjs folders",
     "compile:holmes": "node ./scripts/compile-deck.mjs holmes",
     "compile:threshold": "node ./scripts/compile-deck.mjs threshold"
   }

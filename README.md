@@ -9,6 +9,7 @@ Right now it contains a small set of [deckzero](https://github.com/nvictor/deckz
 - [decks/alerts](./decks/alerts): Multi-window burn-rate alerts
 - [decks/bookmarks](./decks/bookmarks): Two-tier Bookmarks System
 - [decks/cujs](./decks/cujs): Critical User Journeys
+- [decks/folders](./decks/folders): Design Folder Organization
 - [decks/holmes](./decks/holmes): HolmesGPT Architecture
 - [decks/threshold](./decks/threshold): SLO vs Threshold Alerting
 
