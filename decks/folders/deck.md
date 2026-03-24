@@ -8,7 +8,7 @@ The goal is simple: keep capture effortless, keep current work visible, and stop
 <!-- layout: split:text-text -->
 ## Why the Old Structure Creates Friction
 
-The document says the problem is not a lack of folders. It is too much precision too early.
+The problem is not a lack of folders. It is too much precision too early.
 
 <div>
   <h3>Mixed dimensions</h3>
@@ -64,18 +64,14 @@ Each top-level folder should answer one question only.
 For the work reorg, the document recommends this shape.
 
 <div>
-  <pre><code>design/
+  <pre><code>
+design/
 ├── inbox/
 ├── active/
 ├── projects/
 ├── areas/
 ├── reference/
 └── archive/</code></pre>
-</div>
-
-<div>
-  <h3>The big change is <code>active/</code></h3>
-  <p>Current initiatives, messy planning, perf investigations, and half-finished thinking get a first-class home.</p>
 </div>
 
 ---

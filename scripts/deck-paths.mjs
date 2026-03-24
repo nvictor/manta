@@ -62,20 +62,47 @@ export async function collectDeckNames() {
 
 export async function syncDeckzeroAssets(deckName) {
   const deckDir = await resolveDeckDir(deckName);
-  const targetDir = path.join(deckDir, "assets", "deckzero");
-  const themesDir = path.join(targetDir, "themes");
+  const targetDeckzeroDir = path.join(deckDir, "assets", "deckzero");
+  const themesDir = path.join(targetDeckzeroDir, "themes");
 
-  await fs.rm(targetDir, { recursive: true, force: true });
+  await fs.rm(targetDeckzeroDir, { recursive: true, force: true });
   await fs.mkdir(themesDir, { recursive: true });
 
-  await fs.copyFile(resolveDeckzeroPackageFile("deckzero/deckzero.css"), path.join(targetDir, "deckzero.css"));
-  await fs.copyFile(resolveDeckzeroPackageFile("deckzero/deckzero.js"), path.join(targetDir, "deckzero.js"));
+  await fs.copyFile(resolveDeckzeroPackageFile("deckzero/deckzero.css"), path.join(targetDeckzeroDir, "deckzero.css"));
+  await fs.copyFile(resolveDeckzeroPackageFile("deckzero/deckzero.js"), path.join(targetDeckzeroDir, "deckzero.js"));
   await fs.copyFile(resolveDeckzeroPackageFile("deckzero/themes/light.css"), path.join(themesDir, "light.css"));
 
-  console.log("Synced " + path.relative(projectRoot, targetDir) + " from installed deckzero package");
+  console.log("Synced " + path.relative(projectRoot, targetDeckzeroDir) + " from installed deckzero package");
+
+  // Sync reveal and media assets if missing
+  const assetsDir = path.join(deckDir, "assets");
+  const revealDir = path.join(assetsDir, "reveal");
+  const mediaDir = path.join(assetsDir, "media");
+
+  const deckzeroRoot = path.dirname(resolveDeckzeroPackageFile("deckzero/package.json"));
+
+  try {
+    await fs.access(revealDir);
+  } catch {
+    const sourceReveal = path.join(deckzeroRoot, "demo", "vendor", "reveal");
+    await fs.cp(sourceReveal, revealDir, { recursive: true });
+    console.log("Synced " + path.relative(projectRoot, revealDir) + " from deckzero package");
+  }
+
+  try {
+    await fs.access(mediaDir);
+  } catch {
+    const sourceMedia = path.join(deckzeroRoot, "demo", "src", "assets", "media");
+    await fs.mkdir(mediaDir, { recursive: true });
+    // Only copy default.svg if it exists in source
+    try {
+        await fs.copyFile(path.join(sourceMedia, "default.svg"), path.join(mediaDir, "default.svg"));
+        console.log("Synced " + path.relative(projectRoot, path.join(mediaDir, "default.svg")) + " from deckzero package");
+    } catch {}
+  }
 
   return {
     deckDir,
-    targetDir
+    targetDir: targetDeckzeroDir
   };
 }

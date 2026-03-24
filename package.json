@@ -3,7 +3,7 @@
   "private": true,
   "type": "module",
   "dependencies": {
-    "deckzero": "github:nvictor/deckzero"
+    "deckzero": "file:../deckzero"
   },
   "scripts": {
     "sync-deckzero": "node ./scripts/sync-deckzero-assets.mjs",
