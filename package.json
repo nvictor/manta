@@ -6,13 +6,13 @@
     "deckzero": "file:../deckzero"
   },
   "scripts": {
-    "sync-deckzero": "node ./scripts/sync-deckzero-assets.mjs",
-    "compile-decks": "node ./scripts/compile-deck.mjs",
-    "compile:alerts": "node ./scripts/compile-deck.mjs alerts",
-    "compile:bookmarks": "node ./scripts/compile-deck.mjs bookmarks",
-    "compile:cujs": "node ./scripts/compile-deck.mjs cujs",
-    "compile:folders": "node ./scripts/compile-deck.mjs folders",
-    "compile:holmes": "node ./scripts/compile-deck.mjs holmes",
-    "compile:threshold": "node ./scripts/compile-deck.mjs threshold"
+    "sync": "node ./scripts/sync.mjs",
+    "build": "node ./scripts/build.mjs",
+    "build:alerts": "node ./scripts/build.mjs alerts",
+    "build:bookmarks": "node ./scripts/build.mjs bookmarks",
+    "build:cujs": "node ./scripts/build.mjs cujs",
+    "build:folders": "node ./scripts/build.mjs folders",
+    "build:holmes": "node ./scripts/build.mjs holmes",
+    "build:threshold": "node ./scripts/build.mjs threshold"
   }
 }

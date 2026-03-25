@@ -19,6 +19,6 @@ The current decks are authored in markdown and compiled into self-contained `dec
 
 ## Notes
 
-- The deck compiler lives at [scripts/compile-deck.mjs](/scripts/compile-deck.mjs).
+- The deck compiler lives at [scripts/build.mjs](/scripts/build.mjs).
 - `manta` consumes `deckzero` as a package from `github:nvictor/deckzero`.
-- Run `npm install` to fetch or update `deckzero`, then `npm run sync-deckzero` or `npm run compile:<deck>` to refresh vendored deck assets.
+- Run `npm install` to fetch or update `deckzero`, then `npm run sync` or `npm run build:<deck>` to refresh vendored deck assets.
