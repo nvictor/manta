@@ -1,7 +1,7 @@
 <!-- layout: title -->
 # Two-Tier Bookmark System
 
-A guide to a two-tier bookmark system: the Bookmark Bar for active links (RAM) and the archive for searchable storage (Hard Drive).
+A guide to a two-tier bookmark system: the Bookmark Bar for active links (RAM) and the browser bookmark manager for searchable storage (Hard Drive).
 
 ---
 
@@ -16,7 +16,7 @@ Treat your browser bookmarks like short-term memory and your bookmark manager li
 
 <div>
   <h3>Tier 2: Archive</h3>
-  <p>For searchable long-term storage. Tag every entry with context so search stays scoped.</p>
+  <p>For searchable long-term storage off the bookmark bar. Archived links live in the browser manager and are optimized for search, not browsing.</p>
 </div>
 
 ---
@@ -28,7 +28,7 @@ This is your clickable workspace. Organize icons by muscle memory and folders by
 <div class="dz-card-grid">
   <div class="dz-card fragment" data-fragment-index="1">
     <strong>🧭 Icon Row</strong>
-    <small>Personal email, Hacker News, YouTube, Pandora, the archive, and communities stay as icon-only pins so the bar stays wide open.</small>
+    <small>Personal email, Hacker News, YouTube, Pandora, and communities stay as icon-only pins so the bar stays wide open.</small>
   </div>
   <div class="dz-card fragment" data-fragment-index="2">
     <strong>📥 Inbox</strong>
@@ -39,8 +39,8 @@ This is your clickable workspace. Organize icons by muscle memory and folders by
     <small>One click opens weather, news, finance, or journaling tabs so mornings start in the same groove.</small>
   </div>
   <div class="dz-card fragment" data-fragment-index="4">
-    <strong>✈️ InFlight</strong>
-    <small>A rotating folder for whatever deserves a sprint right now—trip planning, a big purchase, or a personal code project.</small>
+    <strong>Active</strong>
+    <small>The current working set lives here: trip planning, a big purchase, or a personal code project you expect to touch repeatedly right now.</small>
   </div>
 </div>
 
@@ -48,28 +48,28 @@ This is your clickable workspace. Organize icons by muscle memory and folders by
 
 ## Personal Stack: Archive
 
-Anything that is not actionable this week belongs down here.
+Anything that is not actionable this week moves off the bar and into the browser bookmark manager.
 
 <div class="dz-card-grid">
   <div class="dz-card fragment" data-fragment-index="1">
-    <strong>🏗 Projects Archive</strong>
-    <small>Personal projects such as renovations, health plans, or coursework live here once the sprint is over.</small>
+    <strong>Off-Bar = Archived</strong>
+    <small>If it is not on the bookmark bar, it is archived. No separate tool and no click-oriented filing system required.</small>
   </div>
   <div class="dz-card fragment" data-fragment-index="2">
-    <strong>📚 Reference</strong>
-    <small>Long-form learning resources and deep-dive tutorials stay searchable without crowding the bar.</small>
+    <strong>Search-First Titles</strong>
+    <small>Name bookmarks so search can recover them later: include the topic, project, or life area in the title instead of relying on memory.</small>
   </div>
   <div class="dz-card fragment" data-fragment-index="3">
-    <strong>🧰 Tool Library</strong>
-    <small>Experiments, progressive web apps, and online utilities you want to remember later.</small>
+    <strong>Tag With Context</strong>
+    <small>Use tags or keywords such as renovation, health, finance, coursework, or travel so one search narrows the archive fast.</small>
   </div>
   <div class="dz-card fragment" data-fragment-index="4">
-    <strong>🛒 Home</strong>
-    <small>Shopping lists, recipes, household management, finances, and other life-admin docs.</small>
+    <strong>Time-Box When Useful</strong>
+    <small>Add a season or date marker when it helps: summer trip 2026, kitchen remodel phase 2, tax prep 2025.</small>
   </div>
   <div class="dz-card fragment" data-fragment-index="5">
-    <strong>🗄 Archive</strong>
-    <small>Older seasons of life and bulk imports; keep nesting shallow so search keeps working.</small>
+    <strong>Forget the Filing</strong>
+    <small>The goal is retrieval, not neat shelves. Once the bookmark is titled and tagged well, let search do the rest.</small>
   </div>
 </div>
 
@@ -101,8 +101,8 @@ Muscle-memory links stay up top so you can reset your workspace in seconds and s
     <small>CI/CD consoles, cloud dashboards, log viewers, and Linear/Jira search views you hop into constantly.</small>
   </div>
   <div class="dz-card fragment" data-fragment-index="6">
-    <strong>✈️ InFlight</strong>
-    <small>One folder per engagement. Move it to the archive as soon as the work is signed off.</small>
+    <strong>Active</strong>
+    <small>One folder for the work you are actively steering right now. Remove links from this folder as soon as they stop affecting the current week.</small>
   </div>
   <div class="dz-card fragment" data-fragment-index="7">
     <strong>📚 Docs</strong>
@@ -118,28 +118,28 @@ Muscle-memory links stay up top so you can reset your workspace in seconds and s
 
 ## Work Stack: Archive
 
-Everything in the archive is searchable without touching the bar.
+Everything off the bar is archived in the browser bookmark manager and should be optimized for search.
 
 <div class="dz-card-grid">
   <div class="dz-card fragment" data-fragment-index="1">
-    <strong>🏗 Projects Archive</strong>
-    <small>Project research and engagement-specific resources once the daily grind is done.</small>
+    <strong>Off-Bar = Archived</strong>
+    <small>Once a ticket, engagement, or reference set no longer belongs on the bar, leave it off-bar and treat it as archived.</small>
   </div>
   <div class="dz-card fragment" data-fragment-index="2">
-    <strong>📚 Reference</strong>
-    <small>Playbooks, canonical docs, and API references too valuable to lose.</small>
+    <strong>Encode Work Context</strong>
+    <small>Put the client, project, system, or team name directly in the title so search can pull the right result without browsing folders.</small>
   </div>
   <div class="dz-card fragment" data-fragment-index="3">
-    <strong>🧰 Tool Library</strong>
-    <small>Infra consoles, experiments, or scripts that you do not need on the bar but want one search away.</small>
+    <strong>Tag By Surface Area</strong>
+    <small>Use searchable keywords such as billing, auth, incident, infra, dashboard, API, or onboarding to keep archived work discoverable.</small>
   </div>
   <div class="dz-card fragment" data-fragment-index="4">
-    <strong>🏢 Company</strong>
-    <small>HR, benefits, org charts, policy docs, and anything that keeps company ops separate from engineering flow.</small>
+    <strong>Add Status Signals</strong>
+    <small>When useful, include markers like deprecated, handoff, Q3 planning, or postmortem so old material is still recoverable with precision.</small>
   </div>
   <div class="dz-card fragment" data-fragment-index="5">
-    <strong>🗄 Archive</strong>
-    <small>Past projects and deprecated docs filed by year or project so the working set stays tiny.</small>
+    <strong>No Archive Taxonomy</strong>
+    <small>Do not maintain a second navigation system for archived work. Proper naming and tagging are enough.</small>
   </div>
 </div>
 
@@ -147,17 +147,17 @@ Everything in the archive is searchable without touching the bar.
 
 ## Zero-Inbox Ritual
 
-Let the bar behave like sprint RAM; the archive holds the evidence, context, and compliance trail.
+Let the bar behave like sprint RAM; the bookmark manager holds the searchable evidence, context, and compliance trail.
 
 <div class="dz-card-grid" data-dz-columns="2">
   <div class="dz-card dz-tone-success fragment" data-fragment-index="1">
     <h3>Sunday reset</h3>
     <p><strong>Coffee + inbox triage</strong></p>
-    <small>Treat the personal bar like short-term memory; everything graduating to the archive gets tagged and forgotten until needed.</small>
+    <small>Treat the personal bar like short-term memory; when something leaves the bar, give it enough title and tag context to be found later.</small>
   </div>
   <div class="dz-card dz-tone-info fragment" data-fragment-index="2">
     <h3>Friday 4:30 PM</h3>
     <p><strong>Zero-inbox ritual</strong></p>
-    <small>Paging on-call clutter — pause and triage now so the work bar is empty before the weekend handoff.</small>
+    <small>Clear the work bar before the weekend handoff; anything worth keeping moves off-bar with client, system, or status context in its title or tags.</small>
   </div>
 </div>
