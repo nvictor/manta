@@ -31,16 +31,16 @@ This is your clickable workspace. Organize icons by muscle memory and folders by
     <small>Personal email, Hacker News, YouTube, Pandora, and communities stay as icon-only pins so the bar stays wide open.</small>
   </div>
   <div class="dz-card fragment" data-fragment-index="2">
-    <strong>📥 Inbox</strong>
-    <small>Drop anything you truly plan to revisit in the next few days, then clear it every Sunday morning over coffee.</small>
-  </div>
-  <div class="dz-card fragment" data-fragment-index="3">
     <strong>🌅 Routine</strong>
     <small>One click opens weather, news, finance, or journaling tabs so mornings start in the same groove.</small>
   </div>
-  <div class="dz-card fragment" data-fragment-index="4">
+  <div class="dz-card fragment" data-fragment-index="3">
     <strong>Active</strong>
     <small>The current working set lives here: trip planning, a big purchase, or a personal code project you expect to touch repeatedly right now.</small>
+  </div>
+  <div class="dz-card fragment" data-fragment-index="4">
+    <strong>📥 Inbox</strong>
+    <small>Drop anything you truly plan to revisit in the next few days, then clear it every Sunday morning over coffee.</small>
   </div>
 </div>
 
