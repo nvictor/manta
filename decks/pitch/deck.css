@@ -1,0 +1,37 @@
+.reveal {
+  --dz-accent: #7c2d12;
+  --dz-bg: #fff8f1;
+  --dz-fg: #31170d;
+  --dz-muted: #7a5a4b;
+  --dz-panel: rgba(255, 250, 245, 0.96);
+  --dz-panel-muted: rgba(255, 239, 226, 0.88);
+  --dz-font-sans: "Avenir Next", "Segoe UI", sans-serif;
+}
+
+.pitch-letters {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.pitch-letters .dz-card {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  justify-content: center;
+  min-height: 9rem;
+  text-align: center;
+}
+
+.pitch-letters strong {
+  color: var(--dz-accent);
+  font-size: 2.8rem;
+  line-height: 1;
+}
+
+.proof-strip {
+  border-left: 0.3rem solid var(--dz-accent);
+  margin-top: 1.25rem;
+  padding-left: 1rem;
+}

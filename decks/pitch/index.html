@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>PITCH: A Persuasion Sequence</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="assets/reveal/reset.css" />
+    <link rel="stylesheet" href="assets/reveal/reveal.css" />
+    <link rel="stylesheet" href="assets/reveal/plugin/highlight/monokai.css" />
+    <link rel="stylesheet" href="assets/deckzero/deckzero.css" />
+    <link rel="stylesheet" href="assets/deckzero/themes/light.css" />
+    <style>
+      .reveal {
+        --dz-accent: #7c2d12;
+        --dz-bg: #fff8f1;
+        --dz-fg: #31170d;
+        --dz-muted: #7a5a4b;
+        --dz-panel: rgba(255, 250, 245, 0.96);
+        --dz-panel-muted: rgba(255, 239, 226, 0.88);
+        --dz-font-sans: "Avenir Next", "Segoe UI", sans-serif;
+      }
+
+      .pitch-letters {
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+      }
+
+      .pitch-letters .dz-card {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        justify-content: center;
+        min-height: 9rem;
+        text-align: center;
+      }
+
+      .pitch-letters strong {
+        color: var(--dz-accent);
+        font-size: 2.8rem;
+        line-height: 1;
+      }
+
+      .proof-strip {
+        border-left: 0.3rem solid var(--dz-accent);
+        margin-top: 1.25rem;
+        padding-left: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      class="reveal"
+      data-dz-brand-src="assets/media/default.svg"
+      data-dz-brand-style="logo"
+      data-dz-brand-position="top-right"
+      data-dz-brand-alt="deckzero"
+      data-dz-theme="light"
+    >
+      <div class="slides">
+        <section>
+        <!-- layout: title -->
+        <h1>PITCH</h1>
+        <p>The persuasion sequence: Pain revelation, intuitive solution, trap of convention, conviction statement, hard proof.</p>
+        </section>
+
+        <section>
+        <h2>Why Most Pitches Stall</h2>
+        <p>People rarely resist because they do not understand your idea.</p>
+        <div class="dz-card-grid" data-dz-columns="3">
+          <div class="dz-card fragment" data-fragment-index="1">
+            <h3>They do not feel the pain</h3>
+            <p>The problem sounds abstract, optional, or delayed.</p>
+          </div>
+          <div class="dz-card fragment" data-fragment-index="2">
+            <h3>They trust the default</h3>
+            <p>Existing habits feel safer than a proposed change.</p>
+          </div>
+          <div class="dz-card fragment" data-fragment-index="3">
+            <h3>They need evidence</h3>
+            <p>Energy rises when the case moves from opinion to proof.</p>
+          </div>
+        </div>
+        </section>
+
+        <section>
+        <h2>The PITCH Formula</h2>
+        <div class="pitch-letters">
+          <div class="dz-card fragment" data-fragment-index="1">
+            <strong>P</strong>
+            <span>Pain revelation</span>
+          </div>
+          <div class="dz-card fragment" data-fragment-index="2">
+            <strong>I</strong>
+            <span>Intuitive solution</span>
+          </div>
+          <div class="dz-card fragment" data-fragment-index="3">
+            <strong>T</strong>
+            <span>Trap of convention</span>
+          </div>
+          <div class="dz-card fragment" data-fragment-index="4">
+            <strong>C</strong>
+            <span>Conviction statement</span>
+          </div>
+          <div class="dz-card fragment" data-fragment-index="5">
+            <strong>H</strong>
+            <span>Hard proof</span>
+          </div>
+        </div>
+        </section>
+
+        <section>
+        <h2>1. Pain Revelation</h2>
+        <p>Start by making the cost of the current state obvious and concrete.</p>
+        <div class="dz-card-grid" data-dz-columns="2">
+          <div class="dz-card fragment" data-fragment-index="1">
+            <h3>What to do</h3>
+            <p>Name the friction, waste, delay, risk, or missed upside the audience already lives with.</p>
+          </div>
+          <div class="dz-card fragment" data-fragment-index="2">
+            <h3>What it changes</h3>
+            <p>The audience stops hearing a proposal and starts recognizing a problem that already belongs to them.</p>
+          </div>
+        </div>
+        </section>
+
+        <section>
+        <h2>2. Intuitive Solution</h2>
+        <p>Present the answer in a way that feels like the natural response to the pain.</p>
+        <div class="dz-card-grid" data-dz-columns="2">
+          <div class="dz-card fragment" data-fragment-index="1">
+            <h3>Make it legible</h3>
+            <p>Explain the idea in plain terms before adding mechanics, features, or implementation detail.</p>
+          </div>
+          <div class="dz-card fragment" data-fragment-index="2">
+            <h3>Reduce cognitive load</h3>
+            <p>The audience should think, “of course,” not “I need a diagram to follow this.”</p>
+          </div>
+        </div>
+        </section>
+
+        <section>
+        <h2>3. Trap of Convention</h2>
+        <p>Show why the current default keeps producing the same bad outcome.</p>
+        <div class="dz-card-grid" data-dz-columns="3">
+          <div class="dz-card fragment" data-fragment-index="1">
+            <h3>Habit</h3>
+            <p>We do it this way because it is familiar.</p>
+          </div>
+          <div class="dz-card fragment" data-fragment-index="2">
+            <h3>Cost</h3>
+            <p>That familiarity hides repeated losses, delays, or failure modes.</p>
+          </div>
+          <div class="dz-card fragment" data-fragment-index="3">
+            <h3>Release</h3>
+            <p>The pitch becomes an escape from a bad loop rather than a risky leap.</p>
+          </div>
+        </div>
+        </section>
+
+        <section>
+        <h2>4. Conviction Statement</h2>
+        <p>State the claim cleanly and without hedging.</p>
+        <div class="dz-card-grid" data-dz-columns="2">
+          <div class="dz-card fragment" data-fragment-index="1">
+            <h3>Say what you believe</h3>
+            <p>Make one direct argument about what should happen next and why.</p>
+          </div>
+          <div class="dz-card fragment" data-fragment-index="2">
+            <h3>Give the room direction</h3>
+            <p>Conviction organizes attention. It tells listeners what all the previous slides were building toward.</p>
+          </div>
+        </div>
+        </section>
+
+        <section>
+        <h2>5. Hard Proof</h2>
+        <p>Finish with evidence that survives scrutiny.</p>
+        <div class="dz-card-grid" data-dz-columns="3">
+          <div class="dz-card fragment" data-fragment-index="1">
+            <h3>Data</h3>
+            <p>Numbers, benchmarks, or measured outcomes.</p>
+          </div>
+          <div class="dz-card fragment" data-fragment-index="2">
+            <h3>Demonstration</h3>
+            <p>A visible example, prototype, pilot, or before-and-after contrast.</p>
+          </div>
+          <div class="dz-card fragment" data-fragment-index="3">
+            <h3>Social validation</h3>
+            <p>Case studies, references, adoption signals, or expert endorsement.</p>
+          </div>
+        </div>
+        <div class="proof-strip">
+          <p><strong>Rule:</strong> End on proof, not explanation. The audience should leave with something they can repeat and defend.</p>
+        </div>
+        </section>
+
+        <section>
+        <h2>The Sequence In One Line</h2>
+        <p>Pain makes the audience care. Intuition makes the answer feel obvious. Convention exposes the bad default. Conviction gives direction. Proof makes belief durable.</p>
+        </section>
+
+        <section>
+        <h2>Use PITCH When You Need Commitment</h2>
+        <div class="dz-card-grid" data-dz-columns="2">
+          <div class="dz-card fragment" data-fragment-index="1">
+            <h3>Good fits</h3>
+            <p>Fundraising, strategy proposals, product launches, sales narratives, change management, and public talks.</p>
+          </div>
+          <div class="dz-card fragment" data-fragment-index="2">
+            <h3>Audience test</h3>
+            <p>If people need to change their mind, not just absorb information, use the full sequence.</p>
+          </div>
+        </div>
+        </section>
+      </div>
+    </div>
+
+    <script src="assets/reveal/reveal.js"></script>
+    <script src="assets/reveal/plugin/zoom.js"></script>
+    <script src="assets/reveal/plugin/notes.js"></script>
+    <script src="assets/reveal/plugin/search.js"></script>
+    <script src="assets/reveal/plugin/markdown.js"></script>
+    <script src="assets/reveal/plugin/highlight.js"></script>
+    <script src="assets/deckzero/deckzero.js"></script>
+    <script>
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        hash: true,
+        center: true,
+        transition: "fade",
+        backgroundTransition: "fade",
+        plugins: [RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight]
+      });
+    </script>
+  </body>
+</html>
