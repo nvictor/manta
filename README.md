@@ -11,6 +11,7 @@ Right now it contains a small set of [deckzero](https://github.com/nvictor/deckz
 - [decks/cujs](./decks/cujs): Critical User Journeys
 - [decks/folders](./decks/folders): Design Folder Organization
 - [decks/holmes](./decks/holmes): HolmesGPT Architecture
+- [decks/parc](./decks/parc): PARC design principles
 - [decks/threshold](./decks/threshold): SLO vs Threshold Alerting
 
 ## Current Format

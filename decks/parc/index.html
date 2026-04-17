@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>PARC: Four Design Principles</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="assets/reveal/reset.css" />
+    <link rel="stylesheet" href="assets/reveal/reveal.css" />
+    <link rel="stylesheet" href="assets/reveal/plugin/highlight/monokai.css" />
+    <link rel="stylesheet" href="assets/deckzero/deckzero.css" />
+    <link rel="stylesheet" href="assets/deckzero/themes/light.css" />
+    <style>
+      .reveal {
+        --dz-accent: #0f766e;
+        --dz-bg: #f4fffd;
+        --dz-fg: #102a29;
+        --dz-muted: #4d6765;
+        --dz-panel: rgba(255, 255, 255, 0.96);
+        --dz-panel-muted: rgba(228, 250, 246, 0.94);
+        --dz-font-sans: "Avenir Next", "Segoe UI", sans-serif;
+      }
+
+      .parc-letters {
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
+      .parc-letters .dz-card {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        justify-content: center;
+        min-height: 10rem;
+        text-align: center;
+      }
+
+      .parc-letters strong {
+        color: var(--dz-accent);
+        font-size: 3rem;
+        line-height: 1;
+      }
+
+      .diagnostic-strip {
+        border-left: 0.3rem solid var(--dz-accent);
+        margin-top: 1.25rem;
+        padding-left: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      class="reveal"
+      data-dz-brand-src="assets/media/default.svg"
+      data-dz-brand-style="logo"
+      data-dz-brand-position="top-right"
+      data-dz-brand-alt="deckzero"
+      data-dz-theme="light"
+    >
+      <div class="slides">
+        <section>
+        <!-- layout: title -->
+        <h1>PARC</h1>
+        <p>The four design principles: Proximity, Alignment, Repetition, Contrast.</p>
+        </section>
+
+        <section>
+        <h2>Why PARC Works</h2>
+        <p>Good design is usually not about adding more.</p>
+        <div class="dz-card-grid" data-dz-columns="3">
+          <div class="dz-card fragment" data-fragment-index="1">
+            <h3>It organizes attention</h3>
+            <p>The viewer quickly sees what belongs together and what matters most.</p>
+          </div>
+          <div class="dz-card fragment" data-fragment-index="2">
+            <h3>It reduces friction</h3>
+            <p>The layout feels intentional instead of improvised.</p>
+          </div>
+          <div class="dz-card fragment" data-fragment-index="3">
+            <h3>It makes choices teachable</h3>
+            <p>PARC gives you a practical way to critique and improve almost any page or slide.</p>
+          </div>
+        </div>
+        </section>
+
+        <section>
+        <h2>The PARC Sequence</h2>
+        <div class="parc-letters">
+          <div class="dz-card fragment" data-fragment-index="1">
+            <strong>P</strong>
+            <span>Proximity</span>
+          </div>
+          <div class="dz-card fragment" data-fragment-index="2">
+            <strong>A</strong>
+            <span>Alignment</span>
+          </div>
+          <div class="dz-card fragment" data-fragment-index="3">
+            <strong>R</strong>
+            <span>Repetition</span>
+          </div>
+          <div class="dz-card fragment" data-fragment-index="4">
+            <strong>C</strong>
+            <span>Contrast</span>
+          </div>
+        </div>
+        </section>
+
+        <section>
+        <h2>1. Proximity</h2>
+        <p>Put related things near each other. Separate unrelated things clearly.</p>
+        <div class="dz-card-grid" data-dz-columns="2">
+          <div class="dz-card fragment" data-fragment-index="1">
+            <h3>What to do</h3>
+            <p>Cluster labels with their content, keep headings close to the material they introduce, and create visible gaps between different groups.</p>
+          </div>
+          <div class="dz-card fragment" data-fragment-index="2">
+            <h3>What it changes</h3>
+            <p>The viewer stops guessing relationships. Structure becomes visible before they read every word.</p>
+          </div>
+        </div>
+        </section>
+
+        <section>
+        <h2>2. Alignment</h2>
+        <p>Every element should look intentionally placed, not casually dropped.</p>
+        <div class="dz-card-grid" data-dz-columns="2">
+          <div class="dz-card fragment" data-fragment-index="1">
+            <h3>What to do</h3>
+            <p>Snap text, images, captions, and cards to shared edges or columns. Let invisible lines govern the page.</p>
+          </div>
+          <div class="dz-card fragment" data-fragment-index="2">
+            <h3>What it changes</h3>
+            <p>Alignment creates calm. It makes even dense information feel trustworthy and easy to scan.</p>
+          </div>
+        </div>
+        </section>
+
+        <section>
+        <h2>3. Repetition</h2>
+        <p>Reuse visual signals so the design feels coherent rather than accidental.</p>
+        <div class="dz-card-grid" data-dz-columns="3">
+          <div class="dz-card fragment" data-fragment-index="1">
+            <h3>Type</h3>
+            <p>Keep heading styles, body styles, and emphasis patterns consistent.</p>
+          </div>
+          <div class="dz-card fragment" data-fragment-index="2">
+            <h3>Shape</h3>
+            <p>Reuse spacing, card treatments, icon sizing, and corner radii.</p>
+          </div>
+          <div class="dz-card fragment" data-fragment-index="3">
+            <h3>Color</h3>
+            <p>Repeat accent colors with purpose so they become meaningful instead of decorative noise.</p>
+          </div>
+        </div>
+        </section>
+
+        <section>
+        <h2>4. Contrast</h2>
+        <p>Differences should be clear enough to communicate hierarchy immediately.</p>
+        <div class="dz-card-grid" data-dz-columns="2">
+          <div class="dz-card fragment" data-fragment-index="1">
+            <h3>What to do</h3>
+            <p>Use real shifts in size, weight, color, spacing, or shape. If two things are different, make them noticeably different.</p>
+          </div>
+          <div class="dz-card fragment" data-fragment-index="2">
+            <h3>What it changes</h3>
+            <p>Contrast tells the eye where to start, what to skim, and what deserves emphasis.</p>
+          </div>
+        </div>
+        </section>
+
+        <section>
+        <h2>Common Failure Pattern</h2>
+        <p>Most weak layouts do not fail from one bad choice. They fail from mild disorder in all four principles.</p>
+        <div class="dz-card-grid" data-dz-columns="4">
+          <div class="dz-card fragment" data-fragment-index="1">
+            <h3>P</h3>
+            <p>Everything is equally spaced, so relationships are unclear.</p>
+          </div>
+          <div class="dz-card fragment" data-fragment-index="2">
+            <h3>A</h3>
+            <p>Objects almost line up, but not quite.</p>
+          </div>
+          <div class="dz-card fragment" data-fragment-index="3">
+            <h3>R</h3>
+            <p>Styles drift from one section to the next.</p>
+          </div>
+          <div class="dz-card fragment" data-fragment-index="4">
+            <h3>C</h3>
+            <p>Hierarchy is too weak to guide attention.</p>
+          </div>
+        </div>
+        <h2>Fast PARC Checklist</h2>
+        <div class="dz-card-grid" data-dz-columns="2">
+          <div class="dz-card fragment" data-fragment-index="1">
+            <h3>Proximity</h3>
+            <p>Can I tell what belongs together without reading every line?</p>
+          </div>
+          <div class="dz-card fragment" data-fragment-index="2">
+            <h3>Alignment</h3>
+            <p>Do the major elements share edges, columns, or a visible grid?</p>
+          </div>
+          <div class="dz-card fragment" data-fragment-index="3">
+            <h3>Repetition</h3>
+            <p>Are recurring elements styled the same way across the design?</p>
+          </div>
+          <div class="dz-card fragment" data-fragment-index="4">
+            <h3>Contrast</h3>
+            <p>Is the hierarchy obvious in under three seconds?</p>
+          </div>
+        </div>
+        </section>
+      </div>
+    </div>
+
+    <script src="assets/reveal/reveal.js"></script>
+    <script src="assets/reveal/plugin/zoom.js"></script>
+    <script src="assets/reveal/plugin/notes.js"></script>
+    <script src="assets/reveal/plugin/search.js"></script>
+    <script src="assets/reveal/plugin/markdown.js"></script>
+    <script src="assets/reveal/plugin/highlight.js"></script>
+    <script src="assets/deckzero/deckzero.js"></script>
+    <script>
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        hash: true,
+        center: true,
+        transition: "fade",
+        backgroundTransition: "fade",
+        plugins: [RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight]
+      });
+    </script>
+  </body>
+</html>
