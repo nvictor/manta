@@ -132,12 +132,12 @@ Use searchable filenames instead of deep trees.
 <div class="file-map">
   <div class="dz-card fragment" data-fragment-index="1">
     <h3>Pattern</h3>
-    <p><code>&lt;domain&gt;-&lt;specific&gt;.md</code></p>
+    <p><code>&lt;Domain&gt;&lt;Specific&gt;.md</code></p>
     <small>Domain first, then the thing you are likely to remember.</small>
   </div>
   <div class="dz-card fragment" data-fragment-index="2">
     <h3>Examples</h3>
-    <p><code>comedy-gag-pad.md</code><br><code>music-orchestra-ranges.md</code><br><code>ai-agent-instructions.md</code></p>
+    <p><code>ComedyGagPad.md</code><br><code>MusicOrchestraRanges.md</code><br><code>AIAgentInstructions.md</code></p>
   </div>
 </div>
 
@@ -150,19 +150,19 @@ The migration is mechanical.
 <div class="dz-card-grid" data-dz-columns="2">
   <div class="dz-card fragment" data-fragment-index="1">
     <h3><code>projects/comedy/GagPad.md</code></h3>
-    <p>Move to <code>active/comedy-gag-pad.md</code>.</p>
+    <p>Move to <code>active/ComedyGagPad.md</code>.</p>
   </div>
   <div class="dz-card fragment" data-fragment-index="2">
     <h3><code>library/creative/StoryStructure.md</code></h3>
-    <p>Move to <code>reference/writing-story-structure.md</code>.</p>
+    <p>Move to <code>reference/WritingStoryStructure.md</code>.</p>
   </div>
   <div class="dz-card fragment" data-fragment-index="3">
     <h3><code>areas/goals/Goals2026.md</code></h3>
-    <p>Move to <code>active/goals-2026.md</code>.</p>
+    <p>Move to <code>active/Goals2026.md</code>.</p>
   </div>
   <div class="dz-card fragment" data-fragment-index="4">
     <h3><code>archive/goals/Goals2022.md</code></h3>
-    <p>Move to <code>archive/2022-goals.md</code>.</p>
+    <p>Move to <code>archive/Goals2022.md</code>.</p>
   </div>
 </div>
 
