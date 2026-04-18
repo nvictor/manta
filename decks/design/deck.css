@@ -1,0 +1,67 @@
+.reveal {
+  --dz-accent: #0f766e;
+  --dz-bg: #f6faf9;
+  --dz-fg: #173231;
+  --dz-muted: #526a68;
+  --dz-panel: rgba(255, 255, 255, 0.96);
+  --dz-panel-muted: rgba(235, 246, 244, 0.94);
+  --dz-font-sans: "Avenir Next", "Segoe UI", sans-serif;
+}
+
+.state-flow {
+  align-items: center;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr auto 1fr auto 1fr;
+  margin-top: 2rem;
+}
+
+.state-flow .arrow {
+  color: var(--dz-muted);
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.state-branch {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+  margin: 1.5rem auto 0;
+  max-width: 24rem;
+}
+
+.decision-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-top: 2rem;
+}
+
+.decision-card strong {
+  display: block;
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+}
+
+.file-map {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-top: 1.5rem;
+}
+
+.file-map .dz-card {
+  min-height: 8rem;
+}
+
+@media (max-width: 900px) {
+  .state-flow,
+  .decision-grid,
+  .file-map {
+    grid-template-columns: 1fr;
+  }
+
+  .state-flow .arrow {
+    transform: rotate(90deg);
+  }
+}

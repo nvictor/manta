@@ -11,6 +11,7 @@
     "build:alerts": "node ./scripts/build.mjs alerts",
     "build:bookmarks": "node ./scripts/build.mjs bookmarks",
     "build:cujs": "node ./scripts/build.mjs cujs",
+    "build:design": "node ./scripts/build.mjs design",
     "build:folders": "node ./scripts/build.mjs folders",
     "build:holmes": "node ./scripts/build.mjs holmes",
     "build:parc": "node ./scripts/build.mjs parc",
