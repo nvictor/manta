@@ -1,0 +1,296 @@
+<!-- layout: title -->
+# From Noise to Intent
+
+Reliability gets sharper when we stop asking only whether systems look strange and start asking whether users can still complete what matters.
+
+---
+
+<!-- layout: split:text-text -->
+## Pain Revelation
+
+Threshold-heavy alerting tells you the system is abnormal, but not whether the payment experience is actually broken for users.
+
+<div>
+  <h3>What responders receive</h3>
+  <div class="intent-pill-wrap">
+    <span>CPU &gt; 90%</span>
+    <span>Queue depth rising</span>
+    <span>Retries elevated</span>
+    <span>Disk 85%</span>
+    <span>Worker lag</span>
+    <span>Pod restart</span>
+    <span>Latency p95 drift</span>
+    <span>Cache miss burst</span>
+  </div>
+</div>
+
+<div>
+  <h3>What leadership and users need to know</h3>
+  <blockquote class="intent-question">Can a customer still authorize, submit, and confirm a payment?</blockquote>
+  <div class="dz-card-grid intent-mini-grid" data-dz-columns="2">
+    <div class="dz-card dz-tone-warning">
+      <strong>System abnormal?</strong>
+      <small>Maybe</small>
+    </div>
+    <div class="dz-card dz-tone-muted">
+      <strong>User impacted?</strong>
+      <small>Unknown</small>
+    </div>
+  </div>
+</div>
+
+---
+
+## Intuitive Solution
+
+Define reliability around Critical User Journeys: the steps users must complete to get real value.
+
+<div class="dz-card-grid" data-dz-columns="2">
+  <div class="dz-card fragment" data-fragment-index="1">
+    <h3>Start with the journey</h3>
+    <p>Model what the user is trying to accomplish, not just which components emitted metrics.</p>
+  </div>
+  <div class="dz-card fragment" data-fragment-index="2">
+    <h3>Map the required path</h3>
+    <p>Include every backend dependency needed for the activity to complete successfully.</p>
+  </div>
+  <div class="dz-card fragment" data-fragment-index="3">
+    <h3>Grade what is critical</h3>
+    <p>Not every interaction deserves the same SLO investment or paging urgency.</p>
+  </div>
+  <div class="dz-card fragment" data-fragment-index="4">
+    <h3>Measure the whole flow</h3>
+    <p>Track the end-to-end path so failure means users cannot finish the outcome that matters.</p>
+  </div>
+</div>
+
+<div class="dz-sequence intent-journey" data-dz-columns="4">
+  <article class="dz-sequence-node">
+    <strong>Browse</strong>
+  </article>
+  <article class="dz-sequence-node">
+    <strong>Review</strong>
+  </article>
+  <article class="dz-sequence-node dz-tone-warning">
+    <strong>Authorize payment</strong>
+  </article>
+  <article class="dz-sequence-node dz-tone-success">
+    <strong>Confirm completion</strong>
+  </article>
+</div>
+
+---
+
+## Impact Statements From CUJs
+
+Once the journey is explicit, incidents can be described in user terms instead of component symptoms.
+
+<div class="dz-card-grid intent-impact-grid" data-dz-columns="3">
+  <div class="dz-card dz-tone-muted fragment" data-fragment-index="1">
+    <h3>Weak signal</h3>
+    <p>Risk service p95 is elevated and queue depth is rising.</p>
+    <small>Technically accurate, but it does not say what users cannot do.</small>
+  </div>
+  <div class="dz-card dz-tone-info fragment" data-fragment-index="2">
+    <h3>CUJ impact</h3>
+    <p>Customers can browse and authorize, but payment confirmation is failing for checkout attempts.</p>
+    <small>The responder knows where the user journey breaks.</small>
+  </div>
+  <div class="dz-card dz-tone-success fragment" data-fragment-index="3">
+    <h3>Incident statement</h3>
+    <p>Payment completion is degraded for a critical revenue journey; page now and diagnose the confirmation path.</p>
+    <small>The business impact and response policy are visible.</small>
+  </div>
+</div>
+
+<p class="intent-policy">CUJs turn telemetry into impact statements: who is affected, what they cannot complete, and why the response matters.</p>
+
+---
+
+<!-- layout: split:text-text -->
+## Trap of Convention
+
+The trap is not bad observability. The trap is treating component health as a proxy for user success.
+
+<div>
+  <h3>What the team optimizes for</h3>
+  <ol>
+    <li>Every service gets thresholds, dashboards, and owners.</li>
+    <li>Each subsystem can explain whether it looks normal.</li>
+    <li>The incident room still has to infer whether the user journey is broken.</li>
+  </ol>
+</div>
+
+<div>
+  <h3>Where the inference fails</h3>
+  <div class="dz-sequence intent-path" data-dz-columns="1">
+    <article class="dz-sequence-node dz-tone-success">
+      <strong>Gateway healthy</strong>
+    </article>
+    <article class="dz-sequence-node dz-tone-success">
+      <strong>Risk service healthy</strong>
+    </article>
+    <article class="dz-sequence-node dz-tone-success">
+      <strong>DB healthy</strong>
+    </article>
+    <article class="dz-sequence-node dz-tone-danger">
+      <strong>Confirmation step failing</strong>
+    </article>
+  </div>
+  <p>The dashboard says the parts are mostly fine. The customer still cannot finish the outcome that matters.</p>
+</div>
+
+---
+
+## Conviction Statement
+
+<blockquote class="intent-conviction">
+  Thresholds tell you when systems look odd. CUJ-based SLOs tell you when users are failing. You need both, with different jobs.
+</blockquote>
+
+<div class="dz-card-grid" data-dz-columns="3">
+  <div class="dz-card fragment" data-fragment-index="1">
+    <h3>Threshold alerts</h3>
+    <strong>Early warning</strong>
+    <p>Route to Slack, tickets, and prevention workflows.</p>
+  </div>
+  <div class="dz-card dz-tone-success fragment" data-fragment-index="2">
+    <h3>CUJ SLO alerts</h3>
+    <strong>Paging signal</strong>
+    <p>Page only when the user journey is burning fast enough to matter now.</p>
+  </div>
+  <div class="dz-card fragment" data-fragment-index="3">
+    <h3>Diagnostics</h3>
+    <strong>Explanation layer</strong>
+    <p>Use metrics, logs, traces, and deploy history to answer why.</p>
+  </div>
+</div>
+
+---
+
+## Burn Rate Turns Intent Into Paging
+
+Multi-window burn-rate alerting gives CUJs operational teeth: page on meaningful budget spend, not on every technical wobble.
+
+<div class="dz-card-grid" data-dz-columns="3">
+  <div class="dz-card dz-tone-danger fragment" data-fragment-index="1">
+    <h3>Fast burn</h3>
+    <p>2% of budget in 1h, confirmed in 5m.</p>
+    <strong>14.4x burn</strong>
+  </div>
+  <div class="dz-card dz-tone-danger fragment" data-fragment-index="2">
+    <h3>Steady burn</h3>
+    <p>5% of budget across 6h, confirmed in 30m.</p>
+    <strong>6x burn</strong>
+  </div>
+  <div class="dz-card dz-tone-warning fragment" data-fragment-index="3">
+    <h3>Chronic drift</h3>
+    <p>10% of budget across 3d, reviewed in office hours.</p>
+    <strong>1x burn</strong>
+  </div>
+</div>
+
+<div class="dz-sequence intent-flow" data-dz-columns="3">
+  <article class="dz-sequence-node">
+    <strong>Error budget</strong>
+  </article>
+  <article class="dz-sequence-node dz-tone-info">
+    <strong>Burn rate</strong>
+  </article>
+  <article class="dz-sequence-node dz-tone-success">
+    <strong>Actionable severity</strong>
+  </article>
+</div>
+
+---
+
+## Three-Layer Operating Model
+
+The important thing is role separation, not replacing thresholds.
+
+<div class="dz-card-grid intent-layer-grid" data-dz-columns="3">
+  <div class="dz-card dz-tone-danger fragment" data-fragment-index="1">
+    <h3>SLO alerts</h3>
+    <p>Are users impacted?</p>
+    <strong>Page</strong>
+  </div>
+  <div class="dz-card dz-tone-warning fragment" data-fragment-index="2">
+    <h3>Threshold alerts</h3>
+    <p>Is the system abnormal?</p>
+    <strong>Investigate</strong>
+  </div>
+  <div class="dz-card dz-tone-success fragment" data-fragment-index="3">
+    <h3>Diagnostic signals</h3>
+    <p>Why is it happening?</p>
+    <strong>Debug</strong>
+  </div>
+</div>
+
+<p class="intent-policy">Policy check: SLO alerts for paging. Threshold alerts for early warning and prevention.</p>
+
+---
+
+## AI Incident Response Needs Intent
+
+AI becomes useful when it is handed a failing journey, not just a pile of abnormal signals.
+
+<div class="dz-sequence intent-timeline" data-dz-columns="4">
+  <article class="dz-sequence-node fragment" data-fragment-index="1">
+    <span class="dz-step-badge">1</span>
+    <strong>Impact-framed alert</strong>
+    <small>Payment completion is burning budget and confirmation is the failing step.</small>
+  </article>
+  <article class="dz-sequence-node fragment" data-fragment-index="2">
+    <span class="dz-step-badge">2</span>
+    <strong>AI narrows the search</strong>
+    <small>It prioritizes deploys, logs, traces, and dependencies tied to the confirmation path.</small>
+  </article>
+  <article class="dz-sequence-node fragment" data-fragment-index="3">
+    <span class="dz-step-badge">3</span>
+    <strong>Responder gets evidence</strong>
+    <small>The output is a ranked hypothesis with supporting signals, not a generic summary of dashboards.</small>
+  </article>
+  <article class="dz-sequence-node dz-tone-success fragment" data-fragment-index="4">
+    <span class="dz-step-badge">4</span>
+    <strong>Action gets sharper</strong>
+    <small>Rollback, mitigation, or owner escalation is tied to the user impact statement.</small>
+  </article>
+</div>
+
+<p class="intent-policy">Without CUJ context, AI incident response starts from noise. With CUJ context, it investigates intent.</p>
+
+---
+
+<!-- layout: split:text-image -->
+## AI RCA Works Better After Intent Exists
+
+AI troubleshooting is most useful once the incident is already framed around the failing user journey.
+
+<div>
+  <div class="dz-sequence intent-loop" data-dz-columns="1">
+    <article class="dz-sequence-node">
+      <strong>Hypothesis</strong>
+    </article>
+    <article class="dz-sequence-node">
+      <strong>Targeted query</strong>
+    </article>
+    <article class="dz-sequence-node">
+      <strong>Evidence check</strong>
+    </article>
+    <article class="dz-sequence-node">
+      <strong>Refine</strong>
+    </article>
+    <article class="dz-sequence-node dz-tone-success">
+      <strong>RCA</strong>
+    </article>
+  </div>
+  <ul>
+    <li>Starts from alert and symptom context.</li>
+    <li>Queries only the most relevant signals.</li>
+    <li>Returns diagnosis and next actions, not just chat output.</li>
+  </ul>
+</div>
+
+<div>
+  <img src="assets/media/holmes-architecture.png" alt="HolmesGPT architecture showing observability, infrastructure, knowledge, and incident outputs." />
+</div>

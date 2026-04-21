@@ -1,0 +1,90 @@
+.reveal {
+  --dz-accent: #0f766e;
+  --dz-bg: #f5fbfa;
+  --dz-fg: #132f2d;
+  --dz-muted: #55716e;
+  --dz-panel: rgba(255, 255, 255, 0.96);
+  --dz-panel-muted: rgba(232, 247, 244, 0.94);
+  --dz-font-sans: "Avenir Next", "Segoe UI", sans-serif;
+}
+
+.intent-signal-grid {
+  margin-top: 1.4rem;
+}
+
+.intent-pill-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.8rem;
+}
+
+.intent-pill-wrap span {
+  border: 1px solid color-mix(in srgb, var(--dz-accent) 18%, transparent);
+  border-radius: 999px;
+  background: var(--dz-panel-muted);
+  color: var(--dz-muted);
+  font-size: 0.62em;
+  padding: 0.35rem 0.65rem;
+}
+
+.intent-question,
+.intent-conviction {
+  border-left: 0.28rem solid var(--dz-accent);
+  color: var(--dz-fg);
+  font-size: 1.02em;
+  line-height: 1.25;
+  margin: 0.8rem 0;
+  padding-left: 1rem;
+}
+
+.intent-conviction {
+  font-size: 1.35em;
+  max-width: 46rem;
+}
+
+.intent-mini-grid {
+  margin-top: 0.9rem;
+}
+
+.intent-journey,
+.intent-flow {
+  margin-top: 1.1rem;
+}
+
+.intent-path {
+  margin: 0.8rem 0;
+}
+
+.intent-layer-grid .dz-card strong {
+  display: block;
+  font-size: 1.2em;
+  margin-top: 0.5rem;
+}
+
+.intent-impact-grid .dz-card p {
+  color: var(--dz-fg);
+  font-weight: 700;
+}
+
+.intent-policy,
+.intent-cta {
+  border-radius: 8px;
+  background: var(--dz-panel-muted);
+  color: var(--dz-fg);
+  font-weight: 700;
+  margin-top: 1.2rem;
+  padding: 0.8rem 1rem;
+}
+
+.intent-timeline .dz-sequence-node small {
+  line-height: 1.25;
+}
+
+.intent-loop {
+  margin: 0.6rem 0 1rem;
+}
+
+.intent-loop .dz-sequence-node {
+  padding-block: 0.45rem;
+}

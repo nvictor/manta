@@ -12,6 +12,7 @@ Right now it contains a small set of [@deckzero](https://github.com/nvictor/deck
 - [decks/design](./decks/design): State-based design folder reorganization
 - [decks/folders](./decks/folders): Design Folder Organization
 - [decks/holmes](./decks/holmes): HolmesGPT Architecture
+- [decks/intent](./decks/intent): Reliability through Critical User Journeys
 - [decks/parc](./decks/parc): PARC design principles
 - [decks/threshold](./decks/threshold): SLO vs Threshold Alerting
 
