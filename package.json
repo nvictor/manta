@@ -14,7 +14,6 @@
     "build:design": "node ./scripts/build.mjs design",
     "build:folders": "node ./scripts/build.mjs folders",
     "build:holmes": "node ./scripts/build.mjs holmes",
-    "build:intent": "node ./scripts/build.mjs intent",
     "build:parc": "node ./scripts/build.mjs parc",
     "build:pitch": "node ./scripts/build.mjs pitch",
     "build:threshold": "node ./scripts/build.mjs threshold"
