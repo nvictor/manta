@@ -198,9 +198,9 @@ The system is deterministic.
 
 ---
 
-## Optional Active Groups
+## Optional Light Flattening
 
-Only add one layer inside <code>active/</code> if it lowers friction.
+Stay as flat as possible, but not flatter than the folder can handle.
 
 <div>
   <pre><code>active/
@@ -209,7 +209,7 @@ Only add one layer inside <code>active/</code> if it lowers friction.
 └── work/</code></pre>
 </div>
 
-<p>Use light grouping when it feels natural. Do not force it.</p>
+<p>If a fully flat folder starts holding too many files, flatten lightly: add the fewest levels needed to keep things navigable. Use one light grouping layer when it lowers friction. Do not force it.</p>
 
 ---
 
